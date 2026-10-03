@@ -1,0 +1,24 @@
+KOMBİ KLİMA GO — WEB SİTESİ
+
+Güncel Kombi Klima GO logosu ile hazırlanmış örnek site.
+
+Açmak için:
+1. ZIP dosyasını bir klasöre çıkarın.
+2. index.html dosyasını tarayıcınızda açın.
+
+Yayınlamak için:
+index.html, styles.css, app.js ve assets klasörünü birlikte
+sunucunuzun site ana dizinine yükleyin. Klasör yapısını koruyun.
+Ek kurulum veya derleme gerekmez.
+
+Kapsam:
+- Mobil uyumlu ürün vitrini
+- Kategori filtreleri ve ürün arama
+- Ürün detay pencereleri
+- Teklif listesi ve teklif metni önizlemesi
+- Güncel logo, favicon, görseller ve yazı tipleri
+
+Bu sürüm temsili bir sitedir. Formlar gerçek talep göndermez;
+ödeme, sipariş, telefon ve WhatsApp entegrasyonu bulunmaz.
+Yerel açılışta metni kopyalama işlevi tarayıcı iznine bağlıdır;
+kopyalama engellenirse metni seçip Ctrl+C kullanabilirsiniz.

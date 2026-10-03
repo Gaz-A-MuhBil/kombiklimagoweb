@@ -1,0 +1,34 @@
+import { CookieConsent } from "@/components/CookieConsent";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
+import { SiteProvider } from "@/components/SiteProvider";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { dbConfigured, getFavoriteIds, getUser } from "@/lib/customer";
+import { getMenu } from "@/lib/menu";
+import { seasonalNav } from "@/lib/season";
+import { siteLd } from "@/lib/seo";
+
+// Üye bilgisi ve veritabanı durumu her istekte okunur. Derleme anında sabitlenirse (ör. /sepet) sepetten
+// siparişe geçerken üyelik "kapalı" görünür ve "Siparişi Onayla" butonu kilitli kalır.
+export const dynamic = "force-dynamic";
+
+export default async function SiteLayout({ children }: { children: React.ReactNode }) {
+  const [user, menu, cats] = await Promise.all([getUser(), getMenu(), seasonalNav()]);
+  const favIds = user ? await getFavoriteIds(user.id) : [];
+  // Popüler aramalar: en çok ürünü olan kategoriler ve markalar
+  const brandTotals = new Map<string, number>();
+  for (const b of menu.flatMap((m) => m.brands)) brandTotals.set(b.name, (brandTotals.get(b.name) ?? 0) + b.count);
+  const topBrands = [...brandTotals].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([name]) => name);
+  const popular = [...menu.slice().sort((a, b) => b.count - a.count).slice(0, 4).map((m) => m.label), ...topBrands];
+  return (
+    <SiteProvider user={user ? { name: user.firstName } : null} favIds={favIds} enabled={dbConfigured()}>
+      <JsonLd data={siteLd()} />
+      <Header menu={menu} popular={popular} />
+      {children}
+      <Footer cats={cats} />
+      <WhatsAppButton />
+      <CookieConsent />
+    </SiteProvider>
+  );
+}
