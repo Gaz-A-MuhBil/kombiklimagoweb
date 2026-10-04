@@ -15,7 +15,7 @@ export default async function AppBannersAdmin({ searchParams }: { searchParams: 
   const [rows] = await db().query<RowDataPacket[]>("SELECT * FROM app_banners WHERE site = ? ORDER BY sort_order, id", [site]);
   return (
     <>
-      <PageHead title="Uygulama Ana Sayfa Bannerları" sub="Mobil uygulamada arama çubuğunun hemen altında kayan bannerlar. Sıra numarasını okla değiştirin. Hiç banner eklenmezse sitenin Ana Sayfa → Slider görselleri, o da yoksa uygulamanın hazır bannerları gösterilir." newHref="/admin/uygulama-banner/new" newLabel="Yeni Banner"><SiteBadge site={site} /></PageHead>
+      <PageHead title="Uygulama Ana Sayfa Bannerları" sub="YALNIZCA MOBİL UYGULAMADA görünür; web sitesinin en üstündeki görseller için Ana Sayfa → Web Sitesi Slider bölümünü kullanın. Mobil uygulamada arama çubuğunun hemen altında kayan bannerlar. Sıra numarasını okla değiştirin. Hiç banner eklenmezse sitenin Ana Sayfa → Slider görselleri, o da yoksa uygulamanın hazır bannerları gösterilir." newHref="/admin/uygulama-banner/new" newLabel="Yeni Banner"><SiteBadge site={site} /></PageHead>
       <Notice saved={saved} />
       <AdminList table="app_banners" base="/admin/uygulama-banner" empty="Henüz uygulama bannerı eklenmemiş. Uygulama şu an sitenin slider görsellerini gösteriyor."
         rows={rows.map((r) => ({ id: r.id, thumb: r.image_url, title: r.title || "(başlıksız banner)", sub: targetLabel(r.target), active: r.active }))} />

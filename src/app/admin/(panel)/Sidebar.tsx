@@ -28,7 +28,7 @@ const groups = [
     title: "Ana Sayfa",
     items: [
       { href: "/admin/sezon", label: "Mevsim Sıralaması", icon: SunSnow },
-      { href: "/admin/slider", label: "Slider", icon: GalleryHorizontal },
+      { href: "/admin/slider", label: "Web Sitesi Slider", icon: GalleryHorizontal },
       { href: "/admin/vitrin", label: "Vitrin Kartları", icon: LayoutGrid },
       { href: "/admin/kampanyalar", label: "Kampanyalar", icon: Megaphone },
       { href: "/admin/markalar", label: "Markalar", icon: Award },
@@ -42,7 +42,7 @@ const groups = [
     title: "Mobil Uygulama",
     items: [
       { href: "/admin/bildirimler", label: "Bildirim Gönder", icon: Bell },
-      { href: "/admin/uygulama-banner", label: "Ana Sayfa Bannerları", icon: GalleryHorizontal },
+      { href: "/admin/uygulama-banner", label: "Uygulama Bannerları", icon: GalleryHorizontal },
       { href: "/admin/uygulama-tanitim", label: "Tanıtım Ekranları", icon: Smartphone },
     ],
   },
