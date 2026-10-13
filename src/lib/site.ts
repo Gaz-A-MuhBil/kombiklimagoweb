@@ -15,9 +15,9 @@ export const nav = [
 ];
 
 export const socials = [
-  { icon: "instagram", label: "Instagram", href: "https://www.instagram.com/gazabilisim" },
-  { icon: "x", label: "X (Twitter)", href: "https://x.com/gazabilisim" },
-  { icon: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/gaza-bili%C5%9Fim/" },
+  { icon: "instagram", label: "Instagram", href: "https://www.instagram.com/kombiklimago" },
+  { icon: "x", label: "X (Twitter)", href: "https://x.com/kombiklimago" },
+  { icon: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/kombi-klima-go/" },
   { icon: "whatsapp", label: "WhatsApp", href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}` },
 ] as const;
 
