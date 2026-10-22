@@ -111,10 +111,10 @@ export function leadCustomerMail(l: LeadMailData) {
     "Uzman ekibimiz en kısa sürede sizinle iletişime geçecek.",
     h.eyebrow("Talebiniz alındı") +
       h.title(`Teşekkürler ${esc(l.fullName.split(" ")[0])},<br>talebiniz bize ulaştı.`) +
-      h.p("Uzman ekibimiz talebinizi inceleyip en kısa sürede sizi arayacak. Acil durumlar için bize telefon veya WhatsApp üzerinden de ulaşabilirsiniz.") +
+      h.p(`Uzman ekibimiz talebinizi inceleyip en kısa sürede ${l.phone ? "sizi arayacak" : "size e-posta ile dönüş yapacak"}. Acil durumlar için bize telefon veya WhatsApp üzerinden de ulaşabilirsiniz.`) +
       h.box([
         ...(l.product ? [["İlgilendiğiniz ürün", `<a href="${esc(l.product.url)}" style="color:#0f2a47">${esc(l.product.name)}</a>`] as [string, string]] : []),
-        ["Telefon", esc(l.phone)],
+        ...(l.phone ? [["Telefon", esc(l.phone)] as [string, string]] : []),
         ...(l.message ? [["Mesajınız", esc(l.message)] as [string, string]] : []),
       ], "Talep özeti") +
       h.button("Ürünleri incele", `${SITE_URL}/urunler`),
@@ -125,11 +125,11 @@ export function leadCustomerMail(l: LeadMailData) {
 export function leadAdminMail(l: LeadMailData) {
   return build(
     `Bilgi talebi: ${l.product?.name ?? "Genel"} — ${l.fullName}`,
-    `${l.fullName} (${l.phone}) bilgi talebi gönderdi.`,
+    `${l.fullName}${l.phone ? ` (${l.phone})` : ""} bilgi talebi gönderdi.`,
     h.eyebrow("Yeni bilgi talebi") +
       h.title(esc(l.fullName)) +
       h.box([
-        ["Telefon", `<a href="tel:${esc(l.phone.replace(/\s/g, ""))}" style="color:#0f2a47">${esc(l.phone)}</a>`],
+        ...(l.phone ? [["Telefon", `<a href="tel:${esc(l.phone.replace(/\s/g, ""))}" style="color:#0f2a47">${esc(l.phone)}</a>`] as [string, string]] : []),
         ...(l.email ? [["E-posta", esc(l.email)] as [string, string]] : []),
         ...(l.city ? [["Şehir / ilçe", esc(l.city)] as [string, string]] : []),
         ...(l.message ? [["Mesaj", esc(l.message)] as [string, string]] : []),

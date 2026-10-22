@@ -56,7 +56,7 @@ function lines(l: Lead): string[] {
     ...(p ? [`Marka: ${p.brand}${p.sku ? ` · Kod: ${p.sku}` : ""}`, `Fiyat: ${p.price > 0 ? tl(p.price) : "Fiyat için arayın"}`, `Link: ${p.url}`] : []),
     "",
     `Ad Soyad: ${l.fullName}`,
-    `Telefon: ${l.phone}`,
+    `Telefon: ${l.phone || "-"}`,
     ...(l.email ? [`E-posta: ${l.email}`] : []),
     ...(l.city ? [`Şehir: ${l.city}`] : []),
     ...(l.message ? [`Mesaj: ${l.message}`] : []),

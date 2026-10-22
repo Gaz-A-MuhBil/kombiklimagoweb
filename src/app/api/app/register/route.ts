@@ -21,7 +21,8 @@ export async function POST(req: Request) {
   const password = b.str("password", 200);
   if (!first || !last) return fail("Ad ve soyad zorunlu.");
   if (!EMAIL.test(email)) return fail("Geçerli bir e-posta adresi girin.");
-  if (phone.replace(/\D/g, "").length < 10) return fail("Geçerli bir telefon numarası girin.");
+  // Telefon isteğe bağlı (App Store 5.1.1): yalnızca yazıldıysa kontrol edilir
+  if (phone && phone.replace(/\D/g, "").length < 10) return fail("Telefon numarası geçersiz. Boş bırakabilir ya da doğru yazabilirsiniz.");
   if (password.length < 8) return fail("Parola en az 8 karakter olmalı.");
   if (!b.bool("kvkk")) return fail("KVKK Aydınlatma Metni'ni onaylamalısınız.");
 

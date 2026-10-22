@@ -15,7 +15,9 @@ export async function POST(req: Request) {
   const phone = b.str("phone", 30);
   const email = b.str("email", 190).toLowerCase();
   if (fullName.length < 3) return fail("Adınızı ve soyadınızı yazın.");
-  if (phone.replace(/\D/g, "").length < 10) return fail("Geçerli bir telefon numarası yazın.");
+  // Size dönebilmemiz için telefon veya e-postadan biri yeterli (App Store 5.1.1)
+  if (!phone && !email) return fail("Size dönebilmemiz için telefon numaranızı veya e-posta adresinizi yazın.");
+  if (phone && phone.replace(/\D/g, "").length < 10) return fail("Telefon numarası geçersiz.");
   if (email && !EMAIL.test(email)) return fail("E-posta adresi geçersiz.");
   if (!b.bool("kvkk")) return fail("Devam etmek için KVKK Aydınlatma Metni'ni onaylayın.");
 
