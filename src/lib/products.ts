@@ -57,6 +57,9 @@ async function fromFile(): Promise<Product[]> {
   }
 }
 
+// Ürün listelerine (kategori, tüm ürünler) giden hali: açıklama kartlarda kullanılmaz, sayfa verisini şişirmesin
+export const listItem = (p: Product): Product => ({ ...p, description: "" });
+
 export async function getProducts(): Promise<Product[]> {
   if (!dbConfigured()) return fromFile();
   try {

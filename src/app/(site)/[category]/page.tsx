@@ -4,7 +4,7 @@ import { CategoryGuide } from "@/components/CategoryGuide";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductListing } from "@/components/ProductListing";
 import { guides } from "@/lib/category-guides";
-import { categoryOf, getProducts } from "@/lib/products";
+import { categoryOf, getProducts, listItem } from "@/lib/products";
 import { abs, breadcrumbLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -41,7 +41,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
           itemListElement: products.slice(0, 30).map((p, i) => ({ "@type": "ListItem", position: i + 1, url: abs(`/urun/${p.slug}`), name: p.name })),
         },
       ]} />
-      <ProductListing key={marka ?? "all"} products={products} crumbs={["Ana Sayfa", name]} hideCategory initialBrands={marka ? [marka] : []} />
+      <ProductListing key={marka ?? "all"} products={products.map(listItem)} crumbs={["Ana Sayfa", name]} hideCategory initialBrands={marka ? [marka] : []} />
       {guide && <CategoryGuide guide={guide} />}
     </>
   );

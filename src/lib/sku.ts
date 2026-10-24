@@ -5,7 +5,7 @@ import { db } from "./db";
 // Aynı tablo scripts/katalog-duzelt.mjs içinde de var; değiştirirseniz ikisini birlikte güncelleyin.
 export const CATEGORY_CODES: Record<string, string> = {
   Kombi: "KMB", Klima: "KLM", "Isı Pompası": "ISP", Radyatör: "RAD", Şofben: "SFB",
-  "Sirkülasyon Pompası": "SRK", "Oda Termostatı": "TRM",
+  "Sirkülasyon Pompası": "SRK", "Oda Termostatı": "TRM", Termosifon: "TRS",
 };
 export const categoryCode = (category: string | null) => CATEGORY_CODES[category ?? ""] ?? "URN";
 

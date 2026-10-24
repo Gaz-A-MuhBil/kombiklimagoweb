@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProductListing } from "@/components/ProductListing";
-import { getProducts } from "@/lib/products";
+import { getProducts, listItem } from "@/lib/products";
 import { searchProducts } from "@/lib/search";
 
 export const dynamic = "force-dynamic";
@@ -24,7 +24,7 @@ export default async function AllProducts({ searchParams }: { searchParams: SP }
   return (
     <ProductListing
       key={`${marka ?? "all"}|${term}`}
-      products={term ? searchProducts(all, term) : all}
+      products={(term ? searchProducts(all, term) : all).map(listItem)}
       crumbs={["Ana Sayfa", term ? `“${term}”` : "Tüm Ürünler"]}
       initialBrands={marka ? [marka] : []}
       eyebrow={term ? "Arama sonuçları" : undefined}

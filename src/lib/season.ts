@@ -15,12 +15,12 @@ export const SEASONS: Record<Season, { label: string; months: string; order: str
   isitma: {
     label: "Isıtma sezonu (kış)",
     months: "Eylül – Mart",
-    order: ["Kombi", "Radyatör", "Isı Pompası", "Oda Termostatı", "Sirkülasyon Pompası", "Şofben", "Klima"],
+    order: ["Kombi", "Radyatör", "Isı Pompası", "Oda Termostatı", "Sirkülasyon Pompası", "Şofben", "Termosifon", "Klima"],
   },
   sogutma: {
     label: "Soğutma sezonu (yaz)",
     months: "Nisan – Ağustos",
-    order: ["Klima", "Isı Pompası", "Şofben", "Kombi", "Radyatör", "Oda Termostatı", "Sirkülasyon Pompası"],
+    order: ["Klima", "Isı Pompası", "Şofben", "Termosifon", "Kombi", "Radyatör", "Oda Termostatı", "Sirkülasyon Pompası"],
   },
 };
 
