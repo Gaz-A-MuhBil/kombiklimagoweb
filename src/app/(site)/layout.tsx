@@ -1,3 +1,4 @@
+import { AppPopup } from "@/components/AppPopup";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -29,6 +30,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <Footer cats={cats} />
       <WhatsAppButton />
       <CookieConsent />
+      <AppPopup />
     </SiteProvider>
   );
 }

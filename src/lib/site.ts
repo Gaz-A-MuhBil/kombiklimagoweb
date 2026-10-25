@@ -33,10 +33,34 @@ export const mailboxes = {
   noreply: "noreply@kombiklimago.com",
 };
 
-// Mobil uygulama mağaza bağlantıları (App Store Apple ID: 6817845551, paket: com.gaza.muhendislik)
+// Mobil uygulama mağaza bağlantıları (App Store Apple ID: 6818854687, paket: com.kombiklimago.app)
 export const appLinks = {
-  ios: "https://apps.apple.com/tr/app/id6817845551",
-  android: "https://play.google.com/store/apps/details?id=com.gaza.muhendislik",
+  ios: "https://apps.apple.com/tr/app/id6818854687",
+  android: "https://play.google.com/store/apps/details?id=com.kombiklimago.app",
+  // iOS uygulaması henüz App Store'da yayında değil (incelemede). Yayına çıkınca true yapın;
+  // o zamana kadar App Store butonu "Yakında" olarak pasif görünür.
+  iosLive: false,
+};
+
+// Ziyaretçiye ekranın ortasında çıkan "Uygulamamızı indirin" penceresi (components/AppPopup.tsx).
+// enabled: false yapılırsa pencere tamamen kapanır. Çerez bildirimi yanıtlanmadan açılmaz;
+// kapatıldıktan sonra snoozeDays gün boyunca, gösterildiği oturumda da bir daha çıkmaz.
+export const appPopup = {
+  enabled: true,
+  delayMs: 6000, // sayfa açıldıktan sonra bekleme
+  scrollPx: 700, // ya da bu kadar kaydırınca
+  snoozeDays: 7,
+  // Bu yollarda (ve alt sayfalarında) gösterilmez: sepet/sipariş ve yasal metinler
+  hidden: [
+    "/admin", "/sepet", "/siparis", "/giris", "/uye-ol", "/hesap-silme", "/abonelik",
+    "/cerez-politikasi", "/gizlilik-politikasi", "/kvkk-aydinlatma-metni", "/kullanim-kosullari",
+    "/mesafeli-satis-sozlesmesi", "/on-bilgilendirme-formu", "/iptal-ve-iade-kosullari", "/teslimat-ve-iade",
+  ],
+  name: "Kombi Klima GO",
+  screens: [
+    { src: "/brand/app-home.webp", alt: "Kombi Klima GO uygulaması ana sayfa", width: 540, height: 1200 },
+    { src: "/brand/app-campaigns.webp", alt: "Uygulamada kampanyalar ekranı", width: 540, height: 1200 },
+  ],
 };
 
 export const contact = {
