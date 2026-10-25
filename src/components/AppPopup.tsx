@@ -120,12 +120,11 @@ export function AppPopup() {
               <X size={20} />
             </button>
 
-            {/* Görsel taraf: marka renginde zemin ve iki telefon ekranı */}
-            <div className="relative h-[210px] overflow-hidden text-white sm:h-[250px] md:h-auto md:min-h-[480px]"
-              style={{ background: "linear-gradient(140deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 62%, black) 100%)" }}>
-              <div aria-hidden className="absolute -left-20 -top-24 h-72 w-72 rounded-full bg-white/[0.06]" />
-              <div aria-hidden className="absolute -bottom-28 -right-16 h-80 w-80 rounded-full bg-accent/25 blur-2xl" />
-              <div aria-hidden className="absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
+            {/* Görsel taraf: ev atmosferi fotoğrafı (public/brand/popup-bg.webp) ve iki telefon ekranı */}
+            <div className="relative h-[210px] overflow-hidden bg-primary text-white sm:h-[250px] md:h-auto md:min-h-[480px]">
+              <Image src="/brand/popup-bg.webp" alt="" fill priority sizes="(min-width: 768px) 400px, 100vw" className="object-cover object-[center_35%]" />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/45" />
+              <div aria-hidden className="absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/25 blur-3xl" />
               <div className="absolute left-5 top-5 z-10 flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold backdrop-blur md:left-6 md:top-6">
                 <Star size={12} className="fill-accent text-accent" /> Ücretsiz · iOS ve Android
               </div>
