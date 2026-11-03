@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProductListing } from "@/components/ProductListing";
-import { getProducts, listItem } from "@/lib/products";
+import { getProducts, getSalesCounts, listItem } from "@/lib/products";
+import { sortByPopularity } from "@/lib/popularity";
 import { getSeason, sortBySeason } from "@/lib/season";
 import { searchProducts } from "@/lib/search";
 
@@ -20,12 +21,12 @@ export async function generateMetadata({ searchParams }: { searchParams: SP }): 
 
 export default async function AllProducts({ searchParams }: { searchParams: SP }) {
   const { marka, q = "" } = await searchParams;
-  const [all, season] = await Promise.all([getProducts(), getSeason()]);
+  const [all, season, sales] = await Promise.all([getProducts(), getSeason(), getSalesCounts()]);
   const term = q.trim().slice(0, 100);
   return (
     <ProductListing
       key={`${marka ?? "all"}|${term}`}
-      products={(term ? searchProducts(all, term) : sortBySeason(all, season, (p) => p.category)).map(listItem)}
+      products={(term ? searchProducts(all, term) : sortBySeason(sortByPopularity(all, sales), season, (p) => p.category)).map(listItem)}
       crumbs={["Ana Sayfa", term ? `“${term}”` : "Tüm Ürünler"]}
       initialBrands={marka ? [marka] : []}
       eyebrow={term ? "Arama sonuçları" : undefined}

@@ -4,7 +4,8 @@ import { CategoryGuide } from "@/components/CategoryGuide";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductListing } from "@/components/ProductListing";
 import { guides } from "@/lib/category-guides";
-import { categoryOf, getProducts, listItem } from "@/lib/products";
+import { categoryOf, getProducts, getSalesCounts, listItem } from "@/lib/products";
+import { sortByPopularity } from "@/lib/popularity";
 import { abs, breadcrumbLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -27,7 +28,9 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const name = await categoryOf(slug);
   const { marka } = await searchParams;
   if (!name) notFound();
-  const products = (await getProducts()).filter((p) => p.category === name);
+  // Önerilen sıra: piyasada en çok satılanlar önde (lib/popularity)
+  const [all, sales] = await Promise.all([getProducts(), getSalesCounts()]);
+  const products = sortByPopularity(all.filter((p) => p.category === name), sales);
   const guide = guides[name];
   return (
     <>

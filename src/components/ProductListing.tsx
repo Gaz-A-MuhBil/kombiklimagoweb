@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { brandsByPopularity } from "@/lib/popularity";
 import { AnimatePresence, motion } from "motion/react";
 import { Check, ChevronDown, SlidersHorizontal, X } from "lucide-react";
 import type { Product } from "@/lib/data";
@@ -56,7 +57,8 @@ export function ProductListing({ products, crumbs = ["Ana Sayfa"], hideCategory 
   // Markalar: başlık altındaki hızlı filtre butonları
   const brandCounts = new Map<string, number>();
   for (const p of products) if (p.brand) brandCounts.set(p.brand, (brandCounts.get(p.brand) ?? 0) + 1);
-  const topBrands = [...brandCounts].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([b]) => b);
+  // Tüm markalar, pazardaki tercih sırasıyla (lib/popularity)
+  const topBrands = brandsByPopularity(hideCategory ? products[0]?.category ?? null : null, [...brandCounts.keys()]);
   const title = crumbs[crumbs.length - 1];
   const chip = (on: boolean) =>
     `shrink-0 rounded-[4px] border px-4 py-2 text-sm transition-colors ${on ? "border-primary bg-primary text-white" : "border-border bg-white hover:border-primary hover:text-primary"}`;
