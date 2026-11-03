@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, BadgeCheck, ChevronDown, Heart, Mail, MapPin, Menu, Phone, Search, ShoppingCart, User, X } from "lucide-react";
+import { ArrowRight, BadgeCheck, Heart, Mail, MapPin, Menu, Phone, Search, ShoppingCart, User, X } from "lucide-react";
 import type { MenuItem } from "@/lib/menu";
 import { contact, igdas } from "@/lib/site";
 import { cartCount, useCart } from "@/store/cart";
@@ -96,7 +96,7 @@ export function Header({ menu, popular }: { menu: MenuItem[]; popular: string[] 
           <ul className="mx-auto flex h-12 w-full max-w-7xl items-stretch px-4 md:px-6">
             <li onMouseEnter={() => setOpen(null)}>
               <Link href="/urunler" onClick={close}
-                className={`flex h-full items-center gap-2 bg-primary-deep px-5 text-sm font-bold text-white ${pathname === "/urunler" ? "text-accent-bright" : ""}`}>
+                className={`flex h-full items-center gap-2 whitespace-nowrap bg-primary-deep px-4 text-sm font-bold text-white xl:px-5 ${pathname === "/urunler" ? "text-accent-bright" : ""}`}>
                 <Menu size={16} />Tüm Ürünler
               </Link>
             </li>
@@ -105,21 +105,21 @@ export function Header({ menu, popular }: { menu: MenuItem[]; popular: string[] 
               return (
                 <li key={m.href} onMouseEnter={() => setOpen(m.label)}>
                   <Link href={m.href} onClick={close} aria-current={pathname === m.href ? "page" : undefined}
-                    className={`relative flex h-full items-center gap-1 px-3.5 text-[13.5px] font-semibold transition-colors xl:px-4 ${on ? "bg-white/10 text-white" : "text-white/85 hover:text-white"}`}>
-                    {m.label}<ChevronDown size={14} className={`opacity-60 transition-transform ${open === m.label ? "rotate-180" : ""}`} />
+                    className={`relative flex h-full items-center whitespace-nowrap px-2.5 text-[13px] font-semibold transition-colors xl:px-3 xl:text-[13.5px] ${on ? "bg-white/10 text-white" : "text-white/85 hover:text-white"}`}>
+                    {m.label}
                     {pathname === m.href && <span className="absolute inset-x-3 bottom-0 h-[3px] bg-accent-bright" />}
                   </Link>
                 </li>
               );
             })}
-            <li className="ml-auto" onMouseEnter={() => setOpen(null)}>
-              <Link href="/hakkimizda" onClick={close} className="flex h-full items-center px-3.5 text-[13.5px] font-semibold text-white/85 hover:text-white">Kurumsal</Link>
+            <li className="ml-auto hidden xl:block" onMouseEnter={() => setOpen(null)}>
+              <Link href="/hakkimizda" onClick={close} className="flex h-full items-center whitespace-nowrap px-3 text-[13.5px] font-semibold text-white/85 hover:text-white">Kurumsal</Link>
             </li>
-            <li onMouseEnter={() => setOpen(null)}>
-              <Link href="/blog" onClick={close} className="flex h-full items-center px-3.5 text-[13.5px] font-semibold text-white/85 hover:text-white">Blog</Link>
+            <li className="hidden xl:block" onMouseEnter={() => setOpen(null)}>
+              <Link href="/blog" onClick={close} className="flex h-full items-center whitespace-nowrap px-3 text-[13.5px] font-semibold text-white/85 hover:text-white">Blog</Link>
             </li>
-            <li onMouseEnter={() => setOpen(null)}>
-              <Link href="/iletisim" onClick={close} className="flex h-full items-center pl-3.5 text-[13.5px] font-semibold text-white/85 hover:text-white">İletişim</Link>
+            <li className="ml-auto xl:ml-0" onMouseEnter={() => setOpen(null)}>
+              <Link href="/iletisim" onClick={close} className="flex h-full items-center whitespace-nowrap pl-3 text-[13.5px] font-semibold text-white/85 hover:text-white">İletişim</Link>
             </li>
           </ul>
         </nav>

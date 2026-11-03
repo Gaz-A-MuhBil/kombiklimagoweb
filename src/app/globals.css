@@ -100,3 +100,7 @@ body {
 .blog-note-title { font-weight: 800; font-size: 0.9375rem; }
 .blog-note-text { margin-top: 0.25rem; font-size: 0.9688rem; line-height: 1.75; color: color-mix(in srgb, var(--foreground) 82%, transparent); }
 .blog > hr { margin: 2.5rem auto; width: 96px; border: 0; border-top: 3px solid var(--border); border-radius: 2px; }
+
+/* Başlıklarda satırlar dengeli kırılsın, paragrafların son satırında tek kelime kalmasın */
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }

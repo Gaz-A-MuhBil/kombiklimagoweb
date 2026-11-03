@@ -126,12 +126,14 @@ export function About({ products, brands, categories }: { products: number; bran
   );
 }
 
-export function Deals({ products }: { products: Product[] }) {
+export function Deals({ products, eyebrow = "Fırsatlar", title = "Kampanyalı Ürünler", text = "Sınırlı stoklu, indirimli modeller.", href = "/urunler", linkLabel = "Tüm ürünler" }: {
+  products: Product[]; eyebrow?: string; title?: string; text?: string; href?: string; linkLabel?: string;
+}) {
   if (!products.length) return null;
   return (
     <section className="bg-surface py-20">
       <div className={wrap}>
-        <Heading eyebrow="Fırsatlar" title="Kampanyalı Ürünler" text="Sınırlı stoklu, indirimli modeller." href="/urunler" linkLabel="Tüm ürünler" />
+        <Heading eyebrow={eyebrow} title={title} text={text} href={href} linkLabel={linkLabel} />
         <DealsGrid products={products} />
       </div>
     </section>

@@ -51,14 +51,14 @@ export function ProductCard({ product: p, index = 0 }: { product: Product; index
       <Link href={`/urun/${p.slug}`} className="mt-1.5 line-clamp-2 min-h-[2.6rem] text-[14.5px] font-bold leading-snug text-foreground transition-colors hover:text-accent">
         {p.name}
       </Link>
-      <div className="mt-auto flex items-end justify-between gap-3 pt-3">
+      <div className="mt-auto flex flex-wrap items-end justify-between gap-x-3 gap-y-2 pt-3">
         <div className="min-w-0">
           {noPrice ? (
             <span className="text-sm font-semibold text-primary">Fiyat için arayın</span>
           ) : (
             <>
-              {p.oldPrice && p.oldPrice > p.price && <p className="text-xs text-muted line-through">{tl(p.oldPrice)}</p>}
-              <span className="text-lg font-extrabold text-primary">{tl(p.price)}</span>
+              {p.oldPrice && p.oldPrice > p.price && <p className="whitespace-nowrap text-xs text-muted line-through">{tl(p.oldPrice)}</p>}
+              <span className="whitespace-nowrap text-lg font-extrabold text-primary">{tl(p.price)}</span>
             </>
           )}
         </div>

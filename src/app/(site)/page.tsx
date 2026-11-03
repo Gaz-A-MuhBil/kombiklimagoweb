@@ -5,11 +5,12 @@ import { CategoryRow } from "@/components/home/CategoryRow";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { ProductTabs, type Group } from "@/components/home/ProductTabs";
 import { About, Brands, CtaBand, Deals, Igdas, Services, TrustBar } from "@/components/home/Sections";
+import { SeasonSpotlight } from "@/components/home/SeasonSpotlight";
 import { Showcase } from "@/components/home/Showcase";
 import { getBrandLogos, getCampaigns, getSlides, getTiles } from "@/lib/cms";
 import type { Product } from "@/lib/data";
 import { getProducts, getSalesCounts } from "@/lib/products";
-import { getSeason, sortBySeason } from "@/lib/season";
+import { SPOTLIGHT, getSeason, sortBySeason, sortTextBySeason } from "@/lib/season";
 import { slugify } from "@/lib/slug";
 
 export const dynamic = "force-dynamic";
@@ -44,7 +45,6 @@ export default async function Home() {
   const groups: Group[] = sortBySeason([...byCat], season, ([name]) => name)
     .map(([name, list]) => ({ name, slug: slugify(name), count: list.length, products: pick(list, 4) }));
   const brands = [...brandCounts].sort((a, b) => b[1] - a[1]).map(([b]) => b);
-  const deals = all.filter((p) => discount(p) >= 0.05 && p.inStock).sort((a, b) => discount(b) - discount(a)).slice(0, 5);
 
   // Satış adedine göre; henüz satış yoksa indirimli ve fiyatı olan ürünler öne çıkar
   const top = (cat: string, n: number) => (byCat.get(cat) ?? [])
@@ -53,7 +53,17 @@ export default async function Home() {
     .slice(0, n);
   // Mevsimin ilk kategorisi yana kaydırmalı "En Çok Satan…", diğerleri 4'er ürünlük bölümler
   const [lead, ...others] = groups.map((g) => g.name);
+  // Kampanyalar da sezona göre: önce sezonun kategorisindeki indirimli ürünler ("Kampanyalı Kombiler"),
+  // genel kampanya bölümünde diğer kategoriler sezon sırasıyla
+  const onSale = all.filter((p) => discount(p) >= 0.05 && p.inStock).sort((a, b) => discount(b) - discount(a));
+  const best = lead ? top(lead, 10) : [];
+  const leadDeals = onSale.filter((p) => p.category === lead && !best.includes(p)).slice(0, 5); // en çok satanlarda çıkanlar tekrar etmesin
+  const deals = sortBySeason(onSale.filter((p) => p.category !== lead), season, (p) => p.category).slice(0, 5);
   const seasonName = season === "isitma" ? "Kış sezonu" : "Yaz sezonu";
+  const spot = SPOTLIGHT[season];
+  // Slayt ve vitrin kartları da sezona göre: kışın kombi, yazın klima önde (genel slaytlar başta kalır)
+  const heroSlides = sortTextBySeason(slides, season, (s) => [s.eyebrow, s.title, ...s.buttons.map((b) => b.url)].join(" "));
+  const heroTiles = sortTextBySeason(tiles, season, (t) => `${t.title} ${t.url}`);
   const rows = others.map((cat) => (
     <CategoryRow key={cat} eyebrow={cat} title={`Öne Çıkan ${plural(cat)}`} href={`/${slugify(cat)}`}
       linkLabel={`Tüm ${plural(cat).toLocaleLowerCase("tr")}`} products={top(cat, 4)} />
@@ -62,17 +72,20 @@ export default async function Home() {
   // Sıralama: slider ve güven şeridi, kategoriler, kurumsal tanıtım, ürünler ve kampanyalar, sonra hizmetler, İGDAŞ, markalar, teklif
   return (
     <main>
-      <HeroSlider slides={slides} />
+      <HeroSlider slides={heroSlides} />
       <TrustBar />
-      <Showcase tiles={tiles} />
-      <About products={all.length} brands={brands.length} categories={groups.length} />
-      <ProductTabs groups={groups} />
+      <Showcase tiles={heroTiles} />
+      {/* Sezonun ürünü: rehber içerik + hemen ardından en çok satanları */}
+      {byCat.has(spot.category) && <SeasonSpotlight s={spot} count={byCat.get(spot.category)!.length} />}
       {lead && (
-        <BestSellers products={top(lead, 10)} eyebrow={`${lead} · ${seasonName}`} title={`En Çok Satan ${plural(lead)}`}
+        <BestSellers products={best} eyebrow={`${lead} · ${seasonName}`} title={`En Çok Satan ${plural(lead)}`}
           href={`/${slugify(lead)}`} linkLabel={`Tüm ${plural(lead).toLocaleLowerCase("tr")}`} />
       )}
-      {rows.slice(0, 3)}
+      <About products={all.length} brands={brands.length} categories={groups.length} />
+      <ProductTabs groups={groups} />
+      {lead && <Deals products={leadDeals} eyebrow={`${seasonName} fırsatları`} title={`Kampanyalı ${plural(lead)}`} href={`/${slugify(lead)}`} linkLabel={`Tüm ${plural(lead).toLocaleLowerCase("tr")}`} />}
       <Campaigns blocks={campaigns} />
+      {rows.slice(0, 3)}
       <Deals products={deals} />
       {rows.slice(3)}
       {/* Adminden logo eklendiyse onlar, eklenmediyse en çok ürünü olan markaların adları */}

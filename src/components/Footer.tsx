@@ -57,13 +57,13 @@ export function Footer({ cats }: { cats: { label: string; href: string }[] }) {
           <dl className="grid gap-x-8 gap-y-4 text-xs sm:grid-cols-2 xl:grid-cols-3">
             {info.map(([k, v]) => (
               <div key={k}>
-                <dt className="font-semibold uppercase tracking-wider text-white/45">{k}</dt>
+                <dt className="font-semibold uppercase tracking-wider text-white/60">{k}</dt>
                 <dd className="mt-1 font-semibold text-white/85">{v}</dd>
               </div>
             ))}
           </dl>
           <div className="flex flex-col gap-3 lg:items-end">
-            <p className="text-xs font-bold uppercase tracking-wider text-white/45">Bizi takip edin</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-white/60">Bizi takip edin</p>
             <SocialIcons itemClass="h-10 w-10 bg-white/10 text-white hover:bg-accent" />
           </div>
         </div>

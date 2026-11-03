@@ -66,3 +66,68 @@ export async function seasonalNav() {
   const [all, ...cats] = nav;
   return [all, ...sortBySeason(cats, season, (n) => n.label)];
 }
+
+// Metinde (slayt başlığı, kart adı, bağlantı adresi) geçen sezon kategorisi; yoksa null
+const fold = (s: string) => s.toLocaleLowerCase("tr").replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c").replace(/[^a-z0-9]+/g, " ");
+export function categoryIn(text: string): string | null {
+  const t = ` ${fold(text)} `;
+  return SEASONS.isitma.order.find((c) => t.includes(` ${fold(c).trim()} `)) ?? null;
+}
+
+// Slayt ve vitrin kartlarını sezona dizer: kategorisi olmayan (genel) öğeler başta kalır,
+// kategorili olanlar sezon sırasına göre; aynı sıradakiler kendi düzenini korur
+export function sortTextBySeason<T>(items: T[], season: Season, text: (t: T) => string) {
+  const rank = seasonRank(season);
+  const r = (t: T) => { const c = categoryIn(text(t)); return c ? rank(c) : -1; };
+  return [...items].sort((a, b) => r(a) - r(b));
+}
+
+// Ana sayfadaki "sezonun ürünü" bölümü: neden şimdi, kapasite rehberi, kısa öneriler
+export type SeasonSpotlight = {
+  category: string; eyebrow: string; title: string; highlight: string; text: string;
+  sizeTitle: string; sizes: { area: string; value: string; q: string }[]; sizeNote: string;
+  tips: { title: string; text: string }[];
+};
+
+export const SPOTLIGHT: Record<Season, SeasonSpotlight> = {
+  isitma: {
+    category: "Kombi",
+    eyebrow: "Kış sezonu",
+    title: "Soğuklar başlamadan",
+    highlight: "kombinizi hazırlayın.",
+    text: "Isıtma sezonunda montaj ve servis takvimi hızla doluyor. Evinize uygun kapasiteyi şimdi seçin; keşif, montaj ve İGDAŞ gaz açma sürecini sizin yerinize takip edelim.",
+    sizeTitle: "Eviniz için kaç kW?",
+    sizes: [
+      { area: "80 m²'ye kadar", value: "20 kW", q: "20 kw" },
+      { area: "80 – 120 m²", value: "24 kW", q: "24 kw" },
+      { area: "120 – 160 m²", value: "28 kW", q: "28 kw" },
+      { area: "160 m² üzeri", value: "30 – 35 kW", q: "35 kw" },
+    ],
+    sizeNote: "Yalıtım, kat ve cephe durumuna göre değişir; kesin kapasiteyi ücretsiz keşifte birlikte belirleriz.",
+    tips: [
+      { title: "Tam yoğuşmalı teknoloji", text: "Baca gazındaki ısıyı geri kazanan yoğuşmalı kombiler aynı konforu daha az doğalgazla sağlar." },
+      { title: "Sezon öncesi bakım", text: "Yıllık bakım, kışın ortasında arıza riskini azaltır ve cihazın verimli çalışmasını sağlar." },
+      { title: "Oda termostatı", text: "Kablosuz ya da akıllı termostatla evi yalnızca gerektiğinde ısıtır, faturayı kontrol altında tutarsınız." },
+    ],
+  },
+  sogutma: {
+    category: "Klima",
+    eyebrow: "Yaz sezonu",
+    title: "Sıcaklar bastırmadan",
+    highlight: "klimanızı seçin.",
+    text: "Yaz aylarında montaj takvimi hızla doluyor. Odanıza uygun kapasiteyi şimdi seçin; keşif, montaj ve servis tek ekipten gelsin.",
+    sizeTitle: "Odanız için kaç BTU?",
+    sizes: [
+      { area: "15 – 20 m²", value: "9.000 BTU", q: "9000 btu" },
+      { area: "20 – 30 m²", value: "12.000 BTU", q: "12000 btu" },
+      { area: "30 – 45 m²", value: "18.000 BTU", q: "18000 btu" },
+      { area: "45 – 60 m²", value: "24.000 BTU", q: "24000 btu" },
+    ],
+    sizeNote: "Güneş alan cephe, tavan yüksekliği ve kişi sayısı ihtiyacı değiştirir; kesin kapasiteyi ücretsiz keşifte belirleriz.",
+    tips: [
+      { title: "Inverter ve enerji sınıfı", text: "Inverter klimalar devir ayarlayarak çalışır; A++ ve üzeri sınıf uzun vadede elektrikten tasarruf sağlar." },
+      { title: "Doğru montaj", text: "İç ve dış ünitenin doğru konumu ve vakumlu montaj, klimanın sessiz ve verimli çalışmasını sağlar." },
+      { title: "Sezon öncesi bakım", text: "Filtre temizliği ve gaz kontrolü, serinletme performansını korur ve havayı temiz tutar." },
+    ],
+  },
+};
