@@ -13,6 +13,7 @@ export const nav = [
   { label: "Oda Termostatı", href: "/oda-termostati" },
   { label: "Isı Pompası", href: "/isi-pompasi" },
   { label: "Sirkülasyon Pompası", href: "/sirkulasyon-pompasi" },
+  { label: "Kazan", href: "/kazan" },
 ];
 
 export const socials = [

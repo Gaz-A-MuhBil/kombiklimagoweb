@@ -10,6 +10,21 @@ export type Guide = {
 };
 
 export const guides: Record<string, Guide> = {
+  Kazan: {
+    title: "Kazan Modelleri | Yoğuşmalı, Buhar ve Kızgın Su Kazanı | Kombi Klima GO",
+    description: "Ticari ve endüstriyel kazanlar: duvar ve yer tipi yoğuşmalı kazan, buhar, kızgın su ve elektrikli kazan. Keşif, proje, montaj ve devreye alma İstanbul'da.",
+    heading: "Ticari ve endüstriyel kazan seçimi",
+    intro: "Apartman, otel, hastane, okul, iş merkezi ve fabrika gibi yüksek ısı ihtiyacı olan yapılarda ısıtma ve proses ihtiyacı kombi yerine kazan sistemleriyle karşılanır. Buderus ve Bosch kazanlarında keşif, kapasite hesabı, kazan dairesi projesi, montaj ve devreye alma hizmeti veriyoruz. Kazan fiyatları kapasite ve proje kapsamına göre belirlendiği için teklif üzerine verilir.",
+    sections: [
+      { h: "Duvar tipi mi, yer tipi mi?", p: "Duvar tipi yoğuşmalı kazanlar (ör. 49–150 kW) kompakt yapılarıyla apartman ve orta ölçekli binalarda az yer kaplar; kaskad sistemle birden fazla kazan birlikte çalıştırılarak toplam kapasite büyütülür. Yer tipi kazanlar yüzlerce kW'tan başlayan yüksek kapasiteler için tercih edilir." },
+      { h: "Sıcak su, kızgın su ve buhar kazanı", p: "Bina ısıtmasında genellikle sıcak su kazanları kullanılır. 100 °C'nin üzerinde sıcaklık gereken bölgesel ısıtma ve endüstriyel süreçlerde kızgın su kazanları, gıda, tekstil ve kimya gibi buhar kullanan tesislerde buhar kazanları seçilir. Elektrikli kazanlar yanma ve baca gazı olmadan çalışır." },
+      { h: "Kapasite nasıl belirlenir?", p: "Doğru kazan kapasitesi; binanın ısı kaybı hesabı, kullanım sıcak suyu ya da buhar ihtiyacı, çalışma basıncı ve tesisat yapısına göre mühendislik hesabıyla belirlenir. Fazla büyük seçilen kazan verimsiz çalışır; bu nedenle keşif ve hesap aşamasını birlikte yürütüyoruz." },
+    ],
+    faq: [
+      { q: "Kazan fiyatları neden sitede yazmıyor?", a: "Kazan sistemlerinde fiyat; kapasite, brülör ve kumanda gibi aksesuarlar, kaskad düzeni ve proje kapsamına göre değişir. İhtiyacınızı ilettiğinizde size özel teklif hazırlıyoruz." },
+      { q: "Kazan dairesi projesi ve montajı yapıyor musunuz?", a: "Evet; keşif, kapasite hesabı, kazan dairesi projesi, montaj, doğalgaz bağlantısı ve devreye alma süreçlerini tek elden yürütüyoruz." },
+    ],
+  },
   Kombi: {
     title: "Kombi Fiyatları ve Modelleri | Yoğuşmalı Kombi | Kombi Klima GO",
     description: "Yoğuşmalı kombi modelleri ve güncel kombi fiyatları. İGDAŞ yetkili bayiden faturalı, garantili kombi; doğalgaz projesi, montaj ve servis İstanbul'da.",

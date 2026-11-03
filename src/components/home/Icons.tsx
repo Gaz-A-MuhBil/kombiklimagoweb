@@ -1,9 +1,9 @@
-import { AirVent, ClipboardCheck, Flame, Heater, MessageCircle, RefreshCcw, ShieldCheck, ShowerHead, Thermometer, Wind, Wrench, type LucideProps } from "lucide-react";
+import { AirVent, ClipboardCheck, Factory, Flame, Heater, MessageCircle, RefreshCcw, ShieldCheck, ShowerHead, Thermometer, Wind, Wrench, type LucideProps } from "lucide-react";
 
 const map = {
   clipboard: ClipboardCheck, wrench: Wrench, shield: ShieldCheck, message: MessageCircle,
   Klima: AirVent, Kombi: Flame, Şofben: ShowerHead, Radyatör: Heater,
-  "Oda Termostatı": Thermometer, "Isı Pompası": Wind, "Sirkülasyon Pompası": RefreshCcw,
+  "Oda Termostatı": Thermometer, "Isı Pompası": Wind, "Sirkülasyon Pompası": RefreshCcw, Kazan: Factory,
 } as const;
 
 export function Icon({ name, ...p }: { name: string } & LucideProps) {

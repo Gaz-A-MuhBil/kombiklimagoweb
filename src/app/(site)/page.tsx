@@ -28,7 +28,7 @@ function pick(list: Product[], n: number) {
 // Başlıklarda kullanılan çoğul adlar
 const PLURAL: Record<string, string> = {
   Kombi: "Kombiler", Klima: "Klimalar", Radyatör: "Radyatörler", "Isı Pompası": "Isı Pompaları",
-  "Oda Termostatı": "Oda Termostatları", "Sirkülasyon Pompası": "Sirkülasyon Pompaları", Şofben: "Şofbenler",
+  "Oda Termostatı": "Oda Termostatları", "Sirkülasyon Pompası": "Sirkülasyon Pompaları", Şofben: "Şofbenler", Kazan: "Kazanlar",
 };
 const plural = (c: string) => PLURAL[c] ?? c;
 
