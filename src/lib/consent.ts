@@ -37,7 +37,10 @@ export const categories: { key: Category; title: string; text: string; locked?: 
     key: "marketing",
     title: "Pazarlama çerezleri",
     text: "İlgi alanlarınıza uygun reklamlar göstermek ve kampanyaların etkisini ölçmek için kullanılır.",
-    cookies: [],
+    cookies: [
+      { name: "_gcl_au", provider: "Google Ads", purpose: "Reklamlara tıklayıp siteye gelen ziyaretlerin dönüşümlerini ölçer.", duration: "3 ay" },
+      { name: "_gcl_aw", provider: "Google Ads", purpose: "Tıklanan reklamın bilgisini saklar (dönüşüm ölçümü).", duration: "3 ay" },
+    ],
   },
 ];
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { GoogleAds } from "@/components/GoogleAds";
 import { BRAND, SITE } from "@/lib/seo";
 
 // Manrope, sunucudan (Google'a bağlanmadan) yüklenir
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="tr" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <SmoothScroll>{children}</SmoothScroll>
+        <GoogleAds />
       </body>
     </html>
   );
