@@ -4,20 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Award, Bell, ExternalLink, MailCheck, Users, GalleryHorizontal, ImagePlus, Inbox, LayoutDashboard, LayoutGrid, LogOut, Megaphone, Menu, MessageSquare, Newspaper, Package, ShoppingBag, Smartphone, SunSnow, TicketPercent, Truck, X,
+  Award, Bell, Building2, FileText, FolderKanban, HelpCircle, Info, ListOrdered, Tags, ExternalLink, MailCheck, Users, GalleryHorizontal, ImagePlus, Inbox, LayoutDashboard, LayoutGrid, LogOut, Megaphone, Menu, MessageCircle, MessageSquare, Newspaper, Package, ReceiptText, ShoppingBag, Smartphone, SunSnow, TicketPercent, Truck, Wrench, X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { SITES, type SiteKey } from "@/lib/sites";
 import { logout } from "../actions";
 import { setAdminSite } from "../cms-actions";
 
-const groups = [
+type Group = { title: string; items: readonly { href: string; label: string; icon: LucideIcon; exact?: boolean; badge?: string }[] };
+
+const groups: readonly Group[] = [
   { title: "", items: [{ href: "/admin", label: "Genel Bakış", icon: LayoutDashboard, exact: true }] },
+  { title: "Teklif", items: [{ href: "/admin/teklifler", label: "Teklifler", icon: ReceiptText }] },
   {
     title: "Mağaza",
     items: [
       { href: "/admin/products", label: "Ürünler", icon: Package },
       { href: "/admin/orders", label: "Siparişler", icon: ShoppingBag, badge: "orders" },
       { href: "/admin/talepler", label: "Bilgi Talepleri", icon: Inbox, badge: "leads" },
+      { href: "/admin/whatsapp", label: "WhatsApp Mesajları", icon: MessageCircle },
       { href: "/admin/kuponlar", label: "İndirim Kuponları", icon: TicketPercent },
       { href: "/admin/kargo", label: "Kargo Ücretleri", icon: Truck },
       { href: "/admin/reviews", label: "Yorumlar", icon: MessageSquare },
@@ -53,7 +58,30 @@ const groups = [
       { href: "/admin/aboneler", label: "Bülten Aboneleri", icon: Users },
     ],
   },
-] as const;
+];
+
+// "GAZ-A Kurumsal" seçiliyken: kurumsal sitenin bölümleri (app/admin/(panel)/kurumsal) ve ondan gelen keşif talepleri
+const kurumsalGroups: readonly Group[] = [
+  { title: "", items: [{ href: "/admin", label: "Genel Bakış", icon: LayoutDashboard, exact: true }] },
+  { title: "Teklif", items: [{ href: "/admin/teklifler", label: "Teklifler", icon: ReceiptText }] },
+  {
+    title: "Kurumsal Site",
+    items: [
+      { href: "/admin/kurumsal/firma", label: "Firma Bilgileri", icon: Building2 },
+      { href: "/admin/kurumsal/slider", label: "Slider", icon: GalleryHorizontal },
+      { href: "/admin/kurumsal/hizmetler", label: "Hizmetler", icon: Wrench },
+      { href: "/admin/kurumsal/surec", label: "Çalışma Süreci", icon: ListOrdered },
+      { href: "/admin/kurumsal/sss", label: "Sık Sorulan Sorular", icon: HelpCircle },
+      { href: "/admin/kurumsal/hakkimizda", label: "Hakkımızda", icon: Info },
+      { href: "/admin/kurumsal/projeler", label: "Projeler", icon: FolderKanban },
+      { href: "/admin/kurumsal/referanslar", label: "Referanslar", icon: Award },
+      { href: "/admin/kurumsal/markalar", label: "Markalar", icon: Tags },
+      { href: "/admin/kurumsal/belgeler", label: "Belgeler", icon: FileText },
+      { href: "/admin/kurumsal/blog", label: "Blog Yazıları", icon: Newspaper },
+    ],
+  },
+  { title: "Talepler", items: [{ href: "/admin/talepler", label: "Keşif / Bilgi Talepleri", icon: Inbox, badge: "leads" }] },
+];
 
 export function Sidebar({ name, email, pendingOrders, openLeads, site }: { name: string; email: string; pendingOrders: number; openLeads: number; site: SiteKey }) {
   const badges: Record<string, number> = { orders: pendingOrders, leads: openLeads };
@@ -62,12 +90,12 @@ export function Sidebar({ name, email, pendingOrders, openLeads, site }: { name:
 
   const nav = (
     <nav className="flex-1 space-y-6 overflow-y-auto px-3 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-lenis-prevent>
-      {groups.map((g) => (
+      {(site === "gazakurumsal" ? kurumsalGroups : groups).map((g) => (
         <div key={g.title}>
           {g.title && <p className="mb-2 px-3 text-[11px] font-bold uppercase tracking-widest text-white/40">{g.title}</p>}
           <ul className="space-y-1">
             {g.items.map((it) => {
-              const active = "exact" in it ? path === it.href : path.startsWith(it.href);
+              const active = it.exact ? path === it.href : path.startsWith(it.href);
               const Icon = it.icon;
               return (
                 <li key={it.href}>
@@ -78,7 +106,7 @@ export function Sidebar({ name, email, pendingOrders, openLeads, site }: { name:
                   >
                     <Icon size={18} />
                     <span className="flex-1">{it.label}</span>
-                    {"badge" in it && badges[it.badge] > 0 && (
+                    {it.badge && badges[it.badge] > 0 && (
                       <span className="rounded-full bg-amber-400 px-2 py-0.5 text-[11px] font-extrabold text-[#071a2e]" title="Bekleyen">{badges[it.badge]}</span>
                     )}
                   </Link>
@@ -100,13 +128,13 @@ export function Sidebar({ name, email, pendingOrders, openLeads, site }: { name:
       {/* Markaya özel içerikler (slider, vitrin, kampanyalar, uygulama bannerları ve tanıtımı) seçili marka için düzenlenir */}
       <div className="px-3 pt-1">
         <p className="mb-2 px-3 text-[11px] font-bold uppercase tracking-widest text-white/40">Düzenlenen marka</p>
-        <div className="grid grid-cols-2 gap-1 rounded-xl bg-white/10 p-1">
+        <div className="grid grid-cols-3 gap-1 rounded-xl bg-white/10 p-1">
           {(Object.keys(SITES) as SiteKey[]).map((k) => (
             <form key={k} action={setAdminSite}>
               <input type="hidden" name="site" value={k} />
               <input type="hidden" name="back" value={path.split("/").slice(0, 3).join("/")} />
               <button aria-pressed={site === k}
-                className={`w-full rounded-lg px-2 py-2 text-xs font-bold transition ${site === k ? "bg-white text-[#071a2e] shadow" : "text-white/70 hover:bg-white/10 hover:text-white"}`}>
+                className={`h-full w-full rounded-lg px-1.5 py-2 text-[11px] font-bold leading-tight transition ${site === k ? "bg-white text-[#071a2e] shadow" : "text-white/70 hover:bg-white/10 hover:text-white"}`}>
                 {SITES[k].label}
               </button>
             </form>
@@ -115,7 +143,7 @@ export function Sidebar({ name, email, pendingOrders, openLeads, site }: { name:
       </div>
       {nav}
       <div className="space-y-1 border-t border-white/10 p-3">
-        <Link href="/" target="_blank" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-white/75 hover:bg-white/10 hover:text-white">
+        <Link href={site === "gazakurumsal" && SITES.gazakurumsal.url ? SITES.gazakurumsal.url : "/"} target="_blank" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-white/75 hover:bg-white/10 hover:text-white">
           <ExternalLink size={18} />Siteyi görüntüle
         </Link>
         <div className="flex items-center gap-3 rounded-xl px-3 py-2.5">

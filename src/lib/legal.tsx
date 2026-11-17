@@ -64,8 +64,8 @@ export const legal: Record<LegalSlug, { title: string; description: string; body
       <>
         <p className="lead">
           Kombi Klima GO, {company.title} markasıdır. Isıtma, havalandırma, soğutma ve iklimlendirme sistemlerinde ürün satışı,
-          proje yönetimi, kurulum, bakım ve onarım hizmetleri sunuyoruz. 2020 yılından bu yana İstanbul Sancaktepe merkezimizden
-          konut ve iş yerlerine hizmet veriyoruz.
+          proje yönetimi, kurulum, bakım ve onarım hizmetleri sunuyoruz. 2020 yılından bu yana konut ve iş yerlerine hizmet veriyoruz; merkezimiz
+          İstanbul Ümraniye'dedir.
         </p>
         <h2>Ne yapıyoruz?</h2>
         <ul>

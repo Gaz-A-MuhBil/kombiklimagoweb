@@ -52,6 +52,13 @@ export const services = [
     text: "Kombi, klima ve ilgili sistemlerin periyodik bakım ve onarım hizmetini veriyoruz.",
     points: ["Periyodik kombi ve klima bakımı", "Arıza tespiti ve onarım", "Parça değişimi ve servis desteği"],
   },
+  {
+    // GAZ-A Mühendislik Yapı Sistemleri (09.11.2026): ayrıntılı sayfalar gazamuhendislik.com.tr/hizmetlerimiz/yapi-sistemleri
+    icon: "building", title: "Yapı Sistemleri",
+    text: "GAZ-A Mühendislik Yapı Sistemleri ile endüstriyel üretim alanlarında projeli inşaat, zemin ve yalıtım işleri yapıyoruz.",
+    points: ["Endüstriyel üretim alanları projeli inşaat işleri", "Endüstriyel zeminler", "Isı, su, ses ve yangın yalıtım sistemleri"],
+    person: { name: "İsmail Koç", role: "İnşaat Mühendisi", phone: "0532 308 35 75" },
+  },
 ] as const;
 
 export { wa as whatsappUrl };

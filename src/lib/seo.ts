@@ -31,8 +31,8 @@ export function siteLd() {
       priceRange: "₺₺",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Eyüp Sultan Mah. Merkez Cad. No: 18 A",
-        addressLocality: "Sancaktepe",
+        streetAddress: "Esenşehir Mah. Çetinkaya Sok. No: 1",
+        addressLocality: "Ümraniye",
         addressRegion: "İstanbul",
         addressCountry: "TR",
       },

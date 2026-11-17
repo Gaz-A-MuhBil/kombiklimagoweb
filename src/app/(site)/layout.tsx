@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteProvider } from "@/components/SiteProvider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { WhatsAppLogger } from "@/components/WhatsAppLogger";
 import { dbConfigured, getFavoriteIds, getUser } from "@/lib/customer";
 import { getMenu } from "@/lib/menu";
 import { seasonalNav } from "@/lib/season";
@@ -29,6 +30,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       {children}
       <Footer cats={cats} />
       <WhatsAppButton />
+      <WhatsAppLogger />
       <CookieConsent />
       <AppPopup />
     </SiteProvider>

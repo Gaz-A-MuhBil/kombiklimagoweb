@@ -6,7 +6,6 @@ import { whatsappUrl } from "@/lib/home";
 import { contact, igdas } from "@/lib/site";
 import { BrandIcon } from "../SocialIcons";
 import { BigNumber } from "./BigNumber";
-import { CountUp } from "./CountUp";
 import { DealsGrid } from "./Deals";
 import { Reveal } from "./Reveal";
 import { ServicesShowcase } from "./ServicesShowcase";
@@ -68,13 +67,8 @@ const why = [
   "Doğalgaz projesi, onay ve gaz açma süreçlerinin takibi",
 ];
 
-// Kurumsal tanıtım: solda görsel ve kuruluş rozeti, sağda metin, maddeler ve rakamlar
-export function About({ products, brands, categories }: { products: number; brands: number; categories: number }) {
-  const stats = [
-    { label: "Ürün çeşidi", node: <CountUp to={products} /> },
-    { label: "Marka", node: <CountUp to={brands} /> },
-    { label: "Ürün grubu", node: <CountUp to={categories} /> },
-  ];
+// Kurumsal tanıtım: solda görsel ve kuruluş rozeti, sağda metin ve maddeler (rakamlar ZoneIntro'da)
+export function About() {
   return (
     <section className="py-20 lg:py-28">
       <div className={`${wrap} grid items-center gap-12 lg:grid-cols-2 lg:gap-20`}>
@@ -104,14 +98,6 @@ export function About({ products, brands, categories }: { products: number; bran
               <li key={w} className="flex items-start gap-3 text-[15px] font-medium"><CheckCircle2 size={20} className="mt-0.5 shrink-0 text-accent" />{w}</li>
             ))}
           </ul>
-          <dl className="mt-9 grid grid-cols-3 divide-x divide-border rounded-[4px] border border-border">
-            {stats.map((s) => (
-              <div key={s.label} className="px-4 py-5 text-center">
-                <dd className="text-3xl font-extrabold tabular-nums text-primary">{s.node}</dd>
-                <dt className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted">{s.label}</dt>
-              </div>
-            ))}
-          </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/hakkimizda" className="inline-flex items-center gap-2 rounded-[4px] bg-primary px-6 py-3.5 text-sm font-bold text-white transition hover:bg-primary-deep">
               Hakkımızda <ArrowRight size={16} />

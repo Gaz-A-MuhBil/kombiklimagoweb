@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { BestSellers } from "@/components/home/BestSellers";
 import { Campaigns } from "@/components/home/Campaigns";
-import { CategoryRow } from "@/components/home/CategoryRow";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { ProductTabs, type Group } from "@/components/home/ProductTabs";
 import { About, Brands, CtaBand, Deals, Igdas, Services, TrustBar } from "@/components/home/Sections";
 import { SeasonSpotlight } from "@/components/home/SeasonSpotlight";
 import { Showcase } from "@/components/home/Showcase";
+import { ZoneIntro } from "@/components/home/ZoneIntro";
 import { getBrandLogos, getCampaigns, getSlides, getTiles } from "@/lib/cms";
 import type { Product } from "@/lib/data";
 import { getProducts, getSalesCounts } from "@/lib/products";
@@ -43,7 +43,7 @@ export default async function Home() {
   }
   // Kategori sekmeleri ve bölümler mevsime göre: kışın Kombi, yazın Klima önde
   const groups: Group[] = sortBySeason([...byCat], season, ([name]) => name)
-    .map(([name, list]) => ({ name, slug: slugify(name), count: list.length, products: pick(list, 4) }));
+    .map(([name, list]) => ({ name, slug: slugify(name), count: list.length, products: pick(list, 8) }));
   const brands = [...brandCounts].sort((a, b) => b[1] - a[1]).map(([b]) => b);
 
   // Satış adedine göre; henüz satış yoksa indirimli ve fiyatı olan ürünler öne çıkar
@@ -51,8 +51,8 @@ export default async function Home() {
     .filter((p) => p.price > 0 && p.inStock)
     .sort((a, b) => (sales.get(b.id) ?? 0) - (sales.get(a.id) ?? 0) || discount(b) - discount(a))
     .slice(0, n);
-  // Mevsimin ilk kategorisi yana kaydırmalı "En Çok Satan…", diğerleri 4'er ürünlük bölümler
-  const [lead, ...others] = groups.map((g) => g.name);
+  // Mevsimin ilk kategorisi yana kaydırmalı "En Çok Satan…"; diğer kategoriler "Ürün Gruplarımız" sekmelerinde
+  const [lead] = groups.map((g) => g.name);
   // Kampanyalar da sezona göre: önce sezonun kategorisindeki indirimli ürünler ("Kampanyalı Kombiler"),
   // genel kampanya bölümünde diğer kategoriler sezon sırasıyla
   const onSale = all.filter((p) => discount(p) >= 0.05 && p.inStock).sort((a, b) => discount(b) - discount(a));
@@ -64,32 +64,28 @@ export default async function Home() {
   // Slayt ve vitrin kartları da sezona göre: kışın kombi, yazın klima önde (genel slaytlar başta kalır)
   const heroSlides = sortTextBySeason(slides, season, (s) => [s.eyebrow, s.title, ...s.buttons.map((b) => b.url)].join(" "));
   const heroTiles = sortTextBySeason(tiles, season, (t) => `${t.title} ${t.url}`);
-  const rows = others.map((cat) => (
-    <CategoryRow key={cat} eyebrow={cat} title={`Öne Çıkan ${plural(cat)}`} href={`/${slugify(cat)}`}
-      linkLabel={`Tüm ${plural(cat).toLocaleLowerCase("tr")}`} products={top(cat, 4)} />
-  ));
-
-  // Sıralama: slider ve güven şeridi, kategoriler, kurumsal tanıtım, ürünler ve kampanyalar, sonra hizmetler, İGDAŞ, markalar, teklif
+  // İki ayrı bölge: önce mağaza (slider, güven şeridi, ürünler, kampanyalar, markalar),
+  // sonra koyu "Kurumsal" geçişiyle başlayan firma bölümü (hizmetler, İGDAŞ, teklif)
   return (
     <main>
       <HeroSlider slides={heroSlides} />
       <TrustBar />
-      <Showcase tiles={heroTiles} />
-      {/* Sezonun ürünü: rehber içerik + hemen ardından en çok satanları */}
-      {byCat.has(spot.category) && <SeasonSpotlight s={spot} count={byCat.get(spot.category)!.length} />}
+      {/* Mevsimin kategorisinde en çok satanlar: hero'nun hemen altında, kategori kartlarının üstünde */}
       {lead && (
         <BestSellers products={best} eyebrow={`${lead} · ${seasonName}`} title={`En Çok Satan ${plural(lead)}`}
           href={`/${slugify(lead)}`} linkLabel={`Tüm ${plural(lead).toLocaleLowerCase("tr")}`} />
       )}
-      <About products={all.length} brands={brands.length} categories={groups.length} />
+      <Showcase tiles={heroTiles} />
+      {/* Sezonun ürünü: kapasite rehberi ve öneriler */}
+      {byCat.has(spot.category) && <SeasonSpotlight s={spot} count={byCat.get(spot.category)!.length} />}
       <ProductTabs groups={groups} />
       {lead && <Deals products={leadDeals} eyebrow={`${seasonName} fırsatları`} title={`Kampanyalı ${plural(lead)}`} href={`/${slugify(lead)}`} linkLabel={`Tüm ${plural(lead).toLocaleLowerCase("tr")}`} />}
       <Campaigns blocks={campaigns} />
-      {rows.slice(0, 3)}
       <Deals products={deals} />
-      {rows.slice(3)}
       {/* Adminden logo eklendiyse onlar, eklenmediyse en çok ürünü olan markaların adları */}
       <Brands items={logos.length ? logos.map((l) => ({ name: l.name, image: l.image })) : brands.slice(0, 12).map((name) => ({ name, image: null }))} />
+      <ZoneIntro products={all.length} brands={brands.length} categories={groups.length} />
+      <About />
       <Services />
       <Igdas />
       <CtaBand />

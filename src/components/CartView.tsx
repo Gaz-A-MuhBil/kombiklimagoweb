@@ -6,6 +6,7 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import { tl } from "@/lib/utils";
 import { PAYMENT_SOON, WHATSAPP_NUMBER } from "@/lib/site";
 import { useCart } from "@/store/cart";
+import { logWhatsApp } from "@/lib/wa-log-client";
 import { BrandIcon } from "./SocialIcons";
 import { CouponBox, SummaryRows, TermsCheck, useQuote } from "./CartSummary";
 import { useCartReady } from "./useCartReady";
@@ -29,6 +30,7 @@ export function CartView() {
       "",
       "Ön Bilgilendirme Formu ve Mesafeli Satış Sözleşmesi'ni okudum, kabul ediyorum.",
     ];
+    logWhatsApp(lines.join("\n"));
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
   };
 

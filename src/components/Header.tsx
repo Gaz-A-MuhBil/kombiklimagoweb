@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +13,32 @@ import { SocialIcons } from "./SocialIcons";
 import { useSite } from "./SiteProvider";
 
 const tel = `tel:+9${contact.phone.replace(/\s/g, "")}`;
+
+// Kategori açılır menüsü: yalnızca üzerine gelinen başlığın altında küçük bir kutu (markalar + tümünü gör)
+function CategoryPanel({ m, onPick }: { m: MenuItem; onPick: () => void }) {
+  return (
+    <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.15 }}
+      className="absolute left-0 top-full z-10 w-[420px] rounded-b-[4px] border border-t-0 border-border bg-white p-5 shadow-[0_18px_40px_-18px_rgba(7,26,46,0.5)]">
+      <p className="mb-2 px-2.5 text-xs font-extrabold uppercase tracking-[0.14em] text-muted">{m.label} markaları</p>
+      <ul className="grid grid-cols-2 gap-x-3">
+        {m.brands.map((b) => (
+          <li key={b.name}>
+            <Link href={`${m.href}?marka=${encodeURIComponent(b.name)}`} onClick={onPick}
+              className="flex items-center justify-between gap-2 rounded-[4px] px-2.5 py-1.5 text-sm font-semibold hover:bg-surface hover:text-primary">
+              <span className="truncate">{b.name}</span><span className="text-xs font-medium tabular-nums text-muted">{b.count}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-4 flex items-center justify-between gap-3 border-t border-border px-2.5 pt-4">
+        <Link href={m.href} onClick={onPick} className="group inline-flex items-center gap-1.5 text-sm font-bold text-primary">
+          Tüm {m.label} ({m.count})<ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+        </Link>
+        <Link href="/bilgi-al" onClick={onPick} className="rounded-[4px] bg-accent px-3.5 py-2 text-sm font-bold text-white hover:bg-accent-bright">Teklif al</Link>
+      </div>
+    </motion.div>
+  );
+}
 
 // Kurumsal üç katlı header: iletişim şeridi (kaydırınca gider), beyaz ana bar ve lacivert kategori menüsü.
 // Ana bar ile menü yapışkandır (sticky); yükseklikleri sabit olduğundan sayfa kaymaz.
@@ -31,7 +57,14 @@ export function Header({ menu, popular }: { menu: MenuItem[]; popular: string[] 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const active = menu.find((m) => m.label === open);
+  // Fare menünün üstünden geçerken açılmasın: başlık üzerinde kısa süre durunca açılır
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hover = (label: string | null) => {
+    if (timer.current) clearTimeout(timer.current);
+    if (!label) return setOpen(null);
+    timer.current = setTimeout(() => setOpen(label), open ? 60 : 160);
+  };
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
   const close = () => { setOpen(null); setMobile(false); };
 
   const iconLink = "relative flex flex-col items-center gap-0.5 rounded-[4px] px-2 py-1.5 text-foreground/80 transition-colors hover:text-primary sm:px-3";
@@ -45,7 +78,7 @@ export function Header({ menu, popular }: { menu: MenuItem[]; popular: string[] 
         <div className="mx-auto flex h-10 w-full max-w-7xl items-center gap-6 px-4 md:px-6">
           <a href={tel} className="flex items-center gap-2 transition-colors hover:text-white"><Phone size={14} className="text-accent-bright" />{contact.phone}</a>
           <a href={`mailto:${contact.email}`} className="hidden items-center gap-2 transition-colors hover:text-white lg:flex"><Mail size={14} className="text-accent-bright" />{contact.email}</a>
-          <span className="hidden items-center gap-2 xl:flex"><MapPin size={14} className="text-accent-bright" />Sancaktepe / İstanbul</span>
+          <span className="hidden items-center gap-2 xl:flex"><MapPin size={14} className="text-accent-bright" />Ümraniye / İstanbul</span>
           <span className="ml-auto flex items-center gap-2"><BadgeCheck size={15} className="text-accent-bright" />{igdas.title} · Yetki No {igdas.no}</span>
           <span className="h-4 w-px bg-white/20" />
           <SocialIcons className="flex gap-0.5" itemClass="h-7 w-7 text-white/70 hover:text-white" size={14} />
@@ -53,7 +86,7 @@ export function Header({ menu, popular }: { menu: MenuItem[]; popular: string[] 
       </div>
 
       <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? "shadow-[0_10px_30px_-18px_rgba(7,26,46,0.55)]" : ""}`}
-        onMouseLeave={() => setOpen(null)}>
+        onMouseLeave={() => hover(null)}>
         <div className="mx-auto flex h-16 w-full max-w-7xl items-center gap-2 px-3 sm:gap-4 sm:px-4 md:h-[76px] md:gap-6 md:px-6">
           <button className="-ml-1 p-1.5 lg:hidden" aria-label="Menü" aria-expanded={mobile} onClick={() => setMobile((v) => !v)}>
             {mobile ? <X size={26} /> : <Menu size={26} />}
@@ -94,7 +127,7 @@ export function Header({ menu, popular }: { menu: MenuItem[]; popular: string[] 
 
         <nav className="hidden bg-primary lg:block" aria-label="Kategoriler">
           <ul className="mx-auto flex h-12 w-full max-w-7xl items-stretch px-4 md:px-6">
-            <li onMouseEnter={() => setOpen(null)}>
+            <li onMouseEnter={() => hover(null)}>
               <Link href="/urunler" onClick={close}
                 className={`flex h-full items-center gap-2 whitespace-nowrap bg-primary-deep px-4 text-sm font-bold text-white xl:px-5 ${pathname === "/urunler" ? "text-accent-bright" : ""}`}>
                 <Menu size={16} />Tüm Ürünler
@@ -103,76 +136,29 @@ export function Header({ menu, popular }: { menu: MenuItem[]; popular: string[] 
             {menu.map((m) => {
               const on = pathname === m.href || open === m.label;
               return (
-                <li key={m.href} onMouseEnter={() => setOpen(m.label)}>
+                <li key={m.href} className="relative" onMouseEnter={() => hover(m.label)}>
                   <Link href={m.href} onClick={close} aria-current={pathname === m.href ? "page" : undefined}
                     className={`relative flex h-full items-center whitespace-nowrap px-2.5 text-[13px] font-semibold transition-colors xl:px-3 xl:text-[13.5px] ${on ? "bg-white/10 text-white" : "text-white/85 hover:text-white"}`}>
                     {m.label}
                     {pathname === m.href && <span className="absolute inset-x-3 bottom-0 h-[3px] bg-accent-bright" />}
                   </Link>
+                  <AnimatePresence>{open === m.label && <CategoryPanel m={m} onPick={close} />}</AnimatePresence>
                 </li>
               );
             })}
-            <li className="ml-auto hidden xl:block" onMouseEnter={() => setOpen(null)}>
+            <li className="ml-auto hidden xl:block" onMouseEnter={() => hover(null)}>
               <Link href="/hakkimizda" onClick={close} className="flex h-full items-center whitespace-nowrap px-3 text-[13.5px] font-semibold text-white/85 hover:text-white">Kurumsal</Link>
             </li>
-            <li className="hidden xl:block" onMouseEnter={() => setOpen(null)}>
+            <li className="hidden xl:block" onMouseEnter={() => hover(null)}>
               <Link href="/blog" onClick={close} className="flex h-full items-center whitespace-nowrap px-3 text-[13.5px] font-semibold text-white/85 hover:text-white">Blog</Link>
             </li>
-            <li className="ml-auto xl:ml-0" onMouseEnter={() => setOpen(null)}>
+            <li className="ml-auto xl:ml-0" onMouseEnter={() => hover(null)}>
               <Link href="/iletisim" onClick={close} className="flex h-full items-center whitespace-nowrap pl-3 text-[13.5px] font-semibold text-white/85 hover:text-white">İletişim</Link>
             </li>
           </ul>
         </nav>
 
         <AnimatePresence>
-          {active && (
-            <motion.div key={active.label} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.16 }}
-              className="absolute inset-x-0 top-full hidden border-b border-border bg-white shadow-xl lg:block">
-              <div className="mx-auto grid w-full max-w-7xl grid-cols-12 gap-10 px-6 py-9">
-                <div className="col-span-3 border-r border-border pr-8">
-                  <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Markalar</p>
-                  <ul className="space-y-1">
-                    {active.brands.map((b) => (
-                      <li key={b.name}>
-                        <Link href={`${active.href}?marka=${encodeURIComponent(b.name)}`} onClick={close}
-                          className="group flex items-center justify-between rounded-[4px] px-3 py-2 text-[15px] font-semibold transition-colors hover:bg-surface hover:text-primary">
-                          {b.name}<span className="text-xs font-medium text-muted">{b.count}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="col-span-4">
-                  <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-muted">Öne çıkan ürünler</p>
-                  <ul className="divide-y divide-border">
-                    {active.featured.map((p) => (
-                      <li key={p.slug}>
-                        <Link href={`/urun/${p.slug}`} onClick={close} className="line-clamp-2 py-2.5 text-[14.5px] leading-snug hover:text-primary">{p.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    <Link href={active.href} onClick={close} className="rounded-[4px] bg-primary px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-deep">Tüm {active.label} ({active.count})</Link>
-                    <Link href="/bilgi-al" onClick={close} className="rounded-[4px] border border-border px-4 py-2.5 text-sm font-bold hover:border-primary hover:text-primary">Teklif al</Link>
-                  </div>
-                </div>
-                <div className="col-span-5">
-                  <Link href={active.href} onClick={close} className="group block">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] bg-surface">
-                      {active.image && (
-                        <Image src={active.image} alt={active.label} fill sizes="480px" unoptimized className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/80 via-primary-deep/10 to-transparent" />
-                      <div className="absolute inset-x-6 bottom-5 flex items-end justify-between text-white">
-                        <p className="text-2xl font-extrabold">{active.label}</p>
-                        <span className="inline-flex items-center gap-2 text-sm font-bold">Tümünü gör <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" /></span>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          )}
           {mobile && (
             <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}
               className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-white lg:hidden" data-lenis-prevent>

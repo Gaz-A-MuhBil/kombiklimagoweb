@@ -37,7 +37,8 @@ export async function setAdminSite(f: FormData) {
   }
   // düzenleme sayfasındayken marka değişirse o bölümün listesine dönülür (kayıt diğer markaya ait olabilir)
   const back = String(f.get("back") ?? "");
-  redirect(/^\/admin(\/[\w-]+)?$/.test(back) ? back : "/admin");
+  if (site === "gazakurumsal") redirect("/admin/kurumsal/firma");
+  redirect(/^\/admin(\/[\w-]+)?$/.test(back) && !back.startsWith("/admin/kurumsal") ? back : "/admin");
 }
 
 // Dosya seçildiyse doğrular ve kaydeder. Seçilmediyse null döner.

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { Check } from "lucide-react";
+import { Check, HardHat, Phone } from "lucide-react";
 import { services } from "@/lib/home";
 import { Icon } from "./Icons";
 
@@ -84,6 +84,18 @@ export function ServicesShowcase() {
                 </li>
               ))}
             </ul>
+            {"person" in s && (
+              <div className="mt-6 flex items-center gap-4 rounded-[4px] bg-surface-alt px-5 py-4">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary text-white"><HardHat size={20} /></span>
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-primary">{s.person.name}</p>
+                  <p className="text-sm text-muted">{s.person.role}</p>
+                </div>
+                <a href={`tel:+9${s.person.phone.replace(/\s/g, "")}`} className="inline-flex shrink-0 items-center gap-2 text-sm font-bold text-primary hover:text-accent">
+                  <Phone size={15} />{s.person.phone}
+                </a>
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
 

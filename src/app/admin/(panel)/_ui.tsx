@@ -155,5 +155,5 @@ export function SiteBadge({ site }: { site: SiteKey }) {
 // Sipariş ve taleplerin hangi siteden (ya da onun uygulamasından) geldiği
 export function SiteTag({ site }: { site: unknown }) {
   const k = siteOf(site);
-  return <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${k === "kombiklimago" ? "bg-orange-50 text-orange-700" : "bg-blue-50 text-blue-700"}`}>{SITES[k].label}</span>;
+  return <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${k === "kombiklimago" ? "bg-orange-50 text-orange-700" : k === "gazakurumsal" ? "bg-emerald-50 text-emerald-700" : "bg-blue-50 text-blue-700"}`}>{SITES[k].label}</span>;
 }

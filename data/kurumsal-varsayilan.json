@@ -1,0 +1,393 @@
+{
+ "firma": {
+  "unvan": "GAZA Mühendislik İnşaat Taahhüt ve Ticaret Limited Şirketi",
+  "kisaUnvan": "GAZA Mühendislik İnşaat Taahhüt ve Ticaret Ltd. Şti.",
+  "telefon": "0533 194 49 52",
+  "whatsapp": "905331944952",
+  "eposta": "destek@gazamuhendislik.com.tr",
+  "adres": "Esenşehir Mah. Çetinkaya Sok. No: 1 Ümraniye / İstanbul",
+  "ilce": "Ümraniye",
+  "igdasYetkiNo": "7005140",
+  "kurulus": "2020",
+  "mersis": "0389151390000001",
+  "ticaretSicil": "237673-5 (İstanbul Ticaret Sicili Müdürlüğü)",
+  "kep": "gazamuhendislik@hs01.kep.tr",
+  "magaza": "https://www.gazamuhendislik.com.tr/",
+  "linkedin": "https://www.linkedin.com/company/gaza-bili%C5%9Fim/",
+  "x": "https://x.com/gazabilisim",
+  "instagram": "https://www.instagram.com/gazabilisim"
+ },
+ "slider": [
+  {
+   "ust": "İGDAŞ Yetkili Bayi · Yetki No 7005140",
+   "baslik": "Doğalgazda *mühendislik* güvencesi",
+   "metin": "Konutlardan sanayi tesislerine, doğalgaz ve mekanik tesisat işlerini projelendiriyor, uyguluyor ve onay sürecini tamamlayarak teslim ediyoruz.",
+   "btn1Yazi": "Ücretsiz Keşif",
+   "btn1Link": "/iletisim",
+   "btn2Yazi": "Faaliyet Alanları",
+   "btn2Link": "/hizmetler"
+  },
+  {
+   "ust": "Proje · Uygulama · Onay",
+   "baslik": "Projeden gaz açımına *tek ekip*",
+   "metin": "Proje çizimi, İGDAŞ onayı, tesisat, sızdırmazlık testi ve gaz açma işlemleri aynı kadro tarafından yürütülür.",
+   "btn1Yazi": "Doğalgaz Hizmetleri",
+   "btn1Link": "/hizmetler/dogalgaz",
+   "btn2Yazi": "İletişim",
+   "btn2Link": "/iletisim"
+  },
+  {
+   "ust": "Isıtma · İklimlendirme · Mekanik Tesisat",
+   "baslik": "Konuttan sanayiye *anahtar teslim* çözümler",
+   "metin": "Kombi ve kazan sistemleri, iklimlendirme, yangın tesisatı ve endüstriyel tesisatta keşiften teslime tek muhatap.",
+   "btn1Yazi": "Tüm Hizmetler",
+   "btn1Link": "/hizmetler",
+   "btn2Yazi": "Hesaplama Araçları",
+   "btn2Link": "/hesaplama"
+  }
+ ],
+ "hizmetler": [
+  {
+   "id": "dogalgaz",
+   "ad": "Doğalgaz Projesi ve Tesisatı",
+   "ozet": "Proje çizimi, İGDAŞ onayı, kolon ve daire içi tesisat, gaz açma.",
+   "metin": [
+    "Binanıza ya da dairenize doğalgaz bağlanabilmesi için önce tesisat projesinin çizilip İGDAŞ tarafından onaylanması gerekir. Projeyi mühendisimiz hazırlar; boru çapları, cihaz yerleri, havalandırma açıklıkları ve baca çıkışları bu aşamada hesaplanır.",
+    "Onaydan sonra binanın kolon hattını ve daire içi tesisatı kurarız. Tesisat tamamlandığında basınç altında sızdırmazlık testi yapılır, ardından İGDAŞ kontrolü ve gaz açma randevusu tarafımızdan takip edilir."
+   ],
+   "kapsam": [
+    "Tesisat projesinin çizimi ve İGDAŞ onayı",
+    "Kolon hattı ve daire içi tesisat",
+    "Sızdırmazlık testi",
+    "Gaz açma işlemlerinin takibi"
+   ],
+   "notlar": [
+    "Boru çapı, hattın uzunluğuna ve bağlanacak cihazların toplam gaz debisine göre hesaplanır.",
+    "Cihazın bulunduğu mahalde havalandırma ve baca çıkışı şartları projede ayrıca kontrol edilir.",
+    "Tesisat, gaz verilmeden önce basınç altında test edilir ve test sonucu kayıt altına alınır."
+   ]
+  },
+  {
+   "id": "kombi",
+   "ad": "Kombi Satışı, Montajı ve Değişimi",
+   "ozet": "Kapasite belirleme, cihaz seçimi, montaj, baca bağlantısı ve değişim işlemleri.",
+   "metin": [
+    "Kombi seçimi evin büyüklüğüne, yalıtım durumuna ve sıcak su ihtiyacına göre yapılır. Gereğinden büyük ya da küçük cihaz hem konforu hem faturayı olumsuz etkiler. Keşifte ihtiyacı belirler, uygun cihazı önerir, montajını ve baca bağlantısını yaparız.",
+    "Eski kombinin yoğuşmalı kombiyle değiştirilmesinde gerekli proje ve uygunluk işlemlerini de biz yürütürüz. Montajdan sonra cihazın ilk çalıştırması yetkili servis tarafından yapılır ve garanti süreci başlar."
+   ],
+   "kapsam": [
+    "Isı ihtiyacının belirlenmesi ve cihaz seçimi",
+    "Montaj ve baca bağlantısı",
+    "Kombi değişimi için proje ve uygunluk işlemleri",
+    "Oda termostatı kurulumu"
+   ],
+   "notlar": [
+    "Yoğuşmalı kombiler düşük dönüş suyu sıcaklığında daha verimli çalışır; radyatör boyları buna göre değerlendirilmelidir.",
+    "Yoğuşma suyu için uygun bir gider bağlantısı gerekir.",
+    "Oda termostatı, kombinin gereksiz çalışmasını önleyerek tüketimi azaltır."
+   ]
+  },
+  {
+   "id": "kalorifer",
+   "ad": "Kalorifer Tesisatı ve Radyatör",
+   "ozet": "Yeni tesisat, radyatör montajı, eski tesisatın yenilenmesi.",
+   "metin": [
+    "Isıtma tesisatında her odanın ısı ihtiyacı ayrı hesaplanır; radyatör boyları ve boru güzergâhı buna göre belirlenir. Yeni tesisat döşemesi, mevcut tesisatın yenilenmesi, radyatör ekleme ve yer değiştirme işlerini yapıyoruz.",
+    "İş bitiminde sistem basınç altında test edilir, havası alınır ve radyatörler arasında dengeleme yapılır. Böylece kombiye uzak odalar da yakın odalar kadar ısınır."
+   ],
+   "kapsam": [
+    "Yeni kalorifer tesisatı",
+    "Radyatör montajı ve ilavesi",
+    "Eski tesisatın yenilenmesi",
+    "Sirkülasyon pompası değişimi"
+   ],
+   "notlar": [
+    "Radyatör boyu oda alanına, cepheye ve yalıtıma göre hesaplanır; aynı büyüklükteki iki odanın ihtiyacı farklı olabilir.",
+    "Radyatörler mümkün olduğunda pencere altına yerleştirilir.",
+    "Termostatik vana, oda bazında sıcaklık ayarı yapılmasını sağlar."
+   ]
+  },
+  {
+   "id": "kazan",
+   "ad": "Kazan ve Merkezi Isıtma Sistemleri",
+   "ozet": "Kazan dairesi kurulumu, yenileme ve doğalgaza dönüşüm.",
+   "metin": [
+    "Apartman, site ve iş merkezlerinde kazan dairesinin kurulumu ya da yenilenmesi işlerini üstleniyoruz. Binanın ısı yüküne göre kazan kapasitesi belirlenir; kazan, pompa, genleşme tankı ve otomasyon bir bütün olarak projelendirilir.",
+    "Eski yakıtlı sistemlerin doğalgaza dönüşümünde proje ve onay sürecini de yürütürüz. Isı pompası uygulamalarında binanın uygunluğunu keşifte değerlendiririz."
+   ],
+   "kapsam": [
+    "Kazan dairesi kurulumu ve yenilenmesi",
+    "Doğalgaza dönüşüm",
+    "Kazan ve pompa değişimi",
+    "Isı pompası uygulamaları"
+   ],
+   "notlar": [
+    "Kazan kapasitesi binanın toplam ısı kaybı hesabına göre seçilir.",
+    "Kazan dairesinde havalandırma, gaz alarm cihazı ve emniyet ekipmanları şartnameye göre düzenlenir.",
+    "Birden fazla kazanın birlikte çalıştırılması, kısmi yükte verimi artırır."
+   ]
+  },
+  {
+   "id": "klima",
+   "ad": "Klima ve İklimlendirme",
+   "ozet": "Klima satışı ve montajı, hava şartlandırma sistemleri.",
+   "metin": [
+    "Konut ve iş yerleri için klima satışı ve montajı yapıyoruz. Cihaz kapasitesi mekânın alanına, cephesine ve kullanım amacına göre seçilir.",
+    "Montajda bakır borulama, drenaj hattı ve dış ünite yerleşimi kurallarına uygun yapılır. Daha büyük alanlar için hava şartlandırma sistemlerinin kurulumunu gerçekleştiriyoruz."
+   ],
+   "kapsam": [
+    "Klima satışı ve montajı",
+    "Hava şartlandırma sistemleri",
+    "Bakır borulama ve drenaj",
+    "Klima bakımı"
+   ],
+   "notlar": [
+    "Kapasite seçiminde alan kadar güneş alma durumu ve mekândaki kişi sayısı da hesaba katılır.",
+    "Bakır boru hattının uzunluğu ve kot farkı cihazın izin verdiği sınırlar içinde tutulur.",
+    "Drenaj hattına yeterli eğim verilmezse su damlatma sorunu oluşur."
+   ]
+  },
+  {
+   "id": "endustriyel",
+   "ad": "Ticari ve Endüstriyel Doğalgaz",
+   "ozet": "İş yeri ve sanayi tesisleri için gaz hattı ve endüstriyel tesisat.",
+   "metin": [
+    "Restoran, fırın, atölye ve fabrikalarda gaz tüketimi ve işletme basıncı konutlardan farklıdır; bu nedenle ayrı bir projelendirme gerekir. İşletmenizin ihtiyacına göre hattı tasarlar, çelik boru imalatını ve cihaz bağlantılarını yaparız.",
+    "Kurumun kontrol ve onay sürecini tamamlayarak tesisi gaz kullanımına hazır teslim ederiz. Mevcut tesislerde kapasite artışı ve hat tadilatı işlerini de yapıyoruz."
+   ],
+   "kapsam": [
+    "Ticari mutfak gaz hatları",
+    "Endüstriyel doğalgaz dönüşümü",
+    "Endüstriyel tesisat imalatı",
+    "Proje ve onay takibi"
+   ],
+   "notlar": [
+    "Sayaç ve basınç düşürme ekipmanı, tesisin toplam gaz debisine göre seçilir.",
+    "Ticari mutfaklarda gaz alarm cihazı ve otomatik gaz kesme vanası kullanılır.",
+    "Çelik hatlarda kaynak işleri belgeli kaynakçılar tarafından yapılır."
+   ]
+  },
+  {
+   "id": "yangin",
+   "ad": "Yangın Tesisatı ve Hidrofor",
+   "ozet": "Yangın dolabı, sprinkler, yangın pompası ve hidrofor kurulumu.",
+   "metin": [
+    "Binaların yangın yönetmeliğine uygun hale getirilmesi için yangın dolabı, sprinkler hattı ve yangın pompası kurulumlarını yapıyoruz.",
+    "Su basıncının yetersiz kaldığı binalarda kat sayısına ve kullanım miktarına uygun hidrofor seçimi ve montajı da hizmetlerimiz arasındadır."
+   ],
+   "kapsam": [
+    "Yangın dolabı ve sprinkler hatları",
+    "Yangın pompası kurulumu",
+    "Hidrofor seçimi ve montajı",
+    "Mevcut sistemlerin bakımı"
+   ],
+   "notlar": [
+    "Yangın tesisatı, binanın kullanım sınıfına ve yüksekliğine göre projelendirilir.",
+    "Hidrofor kapasitesi, daire sayısı ve bina yüksekliği üzerinden debi ve basınç hesabıyla belirlenir.",
+    "Yangın pompaları düzenli aralıklarla test edilmelidir."
+   ]
+  },
+  {
+   "id": "yapi",
+   "ad": "Yapı Sistemleri",
+   "ozet": "Projeli inşaat, endüstriyel zemin ve yalıtım uygulamaları.",
+   "metin": [
+    "Mekanik tesisatın yanında yapı işlerinde de taahhüt hizmeti veriyoruz. Projeli inşaat uygulamaları, fabrika ve depo gibi alanlarda endüstriyel zemin, binalarda ısı ve su yalıtımı işlerini üstleniyoruz.",
+    "Tesisat ve yapı işinin aynı firmada olması, şantiyede koordinasyonu kolaylaştırır ve iş programının tek elden yürütülmesini sağlar."
+   ],
+   "kapsam": [
+    "Projeli inşaat uygulamaları",
+    "Endüstriyel zemin",
+    "Isı ve su yalıtımı"
+   ],
+   "notlar": [
+    "Isı yalıtımı, binanın ısı kaybını azaltarak gereken cihaz kapasitesini ve yakıt tüketimini düşürür.",
+    "Endüstriyel zeminde kaplama türü, zeminin taşıyacağı yüke ve kullanım koşullarına göre seçilir."
+   ]
+  },
+  {
+   "id": "bakim",
+   "ad": "Periyodik Bakım ve Onarım",
+   "ozet": "Kombi, kazan ve klima bakımı, arıza tespiti ve onarım.",
+   "metin": [
+    "Kombi, kazan ve klimaların düzenli bakımı cihazın ömrünü uzatır, yakıt tüketimini düşürür ve güvenli çalışmasını sağlar. Kış öncesi bakım, arıza tespiti ve onarım taleplerinizde ekibimiz adresinize gelir.",
+    "Tesisatınızda gaz kokusu ya da kaçak şüphesi varsa önce vanayı kapatıp Doğalgaz Acil 187 hattını arayınız."
+   ],
+   "kapsam": [
+    "Kombi ve kazan bakımı",
+    "Klima bakımı",
+    "Arıza tespiti ve onarım",
+    "Tesisat kontrolü"
+   ],
+   "notlar": [
+    "Isıtma cihazlarının bakımı, ısıtma sezonu başlamadan yapılmalıdır.",
+    "Bakımda yanma odası, filtreler, genleşme tankı basıncı ve emniyet elemanları kontrol edilir.",
+    "Tesisat suyunun basıncı düşüyorsa nedeni araştırılmalı, sürekli su eklenmemelidir."
+   ]
+  }
+ ],
+ "surec": [
+  {
+   "baslik": "Keşif",
+   "metin": "Ekibimiz adresinize gelir, mekânı ölçer ve mevcut tesisatı inceler. Cihazların yeri, boru güzergâhı ve baca çıkışı sizinle birlikte belirlenir. Keşif ücretsizdir."
+  },
+  {
+   "baslik": "Yazılı teklif",
+   "metin": "Kullanılacak malzeme, işçilik, proje bedeli ve iş süresi kalem kalem yazılı olarak sunulur."
+  },
+  {
+   "baslik": "Proje ve İGDAŞ onayı",
+   "metin": "Mühendisimiz tesisat projesini çizer ve İGDAŞ'a sunar. Gereken evrakları size bildirir, onay sürecini biz takip ederiz."
+  },
+  {
+   "baslik": "Tesisat ve montaj",
+   "metin": "Onaylanan projeye göre borulama yapılır, cihazlar ve baca bağlantıları monte edilir."
+  },
+  {
+   "baslik": "Test ve kontrol",
+   "metin": "Tesisat basınç altında sızdırmazlık testinden geçirilir, ardından İGDAŞ kontrolü için randevu alınır."
+  },
+  {
+   "baslik": "Gaz açma ve teslim",
+   "metin": "Uygunluk onayından sonra gaz açılır, cihazlar devreye alınır ve kullanım anlatılarak iş teslim edilir."
+  }
+ ],
+ "sss": [
+  {
+   "soru": "Keşif için ücret alıyor musunuz?",
+   "cevap": "Hayır. Keşif ve yazılı teklif ücretsizdir; teklifi kabul edip etmemek tamamen size bağlıdır."
+  },
+  {
+   "soru": "Doğalgaz tesisatı yaptırmak için önce ne yapmalıyım?",
+   "cevap": "Bizi aramanız yeterli. Keşiften sonra binanızın ve dairenizin durumuna göre hangi başvuruların ve evrakların gerektiğini size bildiririz. Proje çizimi, İGDAŞ başvurusu ve randevuları biz takip ederiz."
+  },
+  {
+   "soru": "Kombimi değiştireceğim, yeniden proje gerekir mi?",
+   "cevap": "Bu, yeni cihazın tipine ve kapasitesine, ayrıca kombinin yerinin değişip değişmediğine göre İGDAŞ kurallarıyla belirlenir. Keşifte durumunuzu netleştirir, gereken işlemleri sizin adınıza yürütürüz."
+  },
+  {
+   "soru": "İş ne kadar sürer?",
+   "cevap": "Süre, işin büyüklüğüne ve kurum randevularına bağlıdır. Montaj süresini ve tahmini teslim tarihini teklifte yazılı olarak belirtiriz."
+  },
+  {
+   "soru": "Hangi bölgelere hizmet veriyorsunuz?",
+   "cevap": "İstanbul genelinde hizmet veriyoruz. Adresinizi iletmeniz halinde size en yakın keşif gününü planlarız."
+  }
+ ],
+ "hakkimizda": {
+  "metin": [
+   "GAZA Mühendislik İnşaat Taahhüt ve Ticaret Ltd. Şti. 2020 yılında kuruldu. Isıtma, soğutma ve sıcak su sistemleri alanında satış, projelendirme, montaj ve bakım hizmetlerini tek çatı altında veriyoruz.",
+   "İGDAŞ yetkili firma olarak doğalgaz projesinin çizimini, kuruma sunulmasını, tesisatın yapımını ve gaz açma işlemlerini kendi kadromuzla yürütüyoruz. Böylece müşterimiz proje, malzeme, işçilik ve resmi işlemler için ayrı ayrı firmalarla uğraşmak zorunda kalmıyor.",
+   "Konut tesisatının yanında iş yerleri ve sanayi tesisleri için ticari ve endüstriyel doğalgaz, yangın tesisatı, hidrofor, iklimlendirme ve yapı sistemleri uygulamaları yapıyoruz."
+  ],
+  "ilkeler": [
+   "Her iş, yerinde keşif ve yazılı teklifle başlar.",
+   "Tesisat, onaylı projeye ve yürürlükteki teknik şartnamelere göre yapılır.",
+   "Boru çapı, cihaz kapasitesi ve havalandırma hesapla belirlenir, tahmine bırakılmaz.",
+   "Cihaz ve malzemeler kendi mağazamızdan, yetkili satıcı güvencesiyle temin edilir.",
+   "Teslimden sonra bakım ve onarım için aynı ekibe ulaşırsınız."
+  ]
+ },
+ "projeler": [],
+ "referanslar": [
+  {
+   "ad": "Aslı Börek",
+   "logo": "/assets/ref-asli.png",
+   "yukseklik": 74,
+   "gri": false
+  },
+  {
+   "ad": "Kuveyt Türk",
+   "logo": "/assets/ref-kuveytturk.png",
+   "yukseklik": 34,
+   "gri": false
+  },
+  {
+   "ad": "Eksim Holding",
+   "logo": "/assets/ref-eksim.png",
+   "yukseklik": 36,
+   "gri": false
+  },
+  {
+   "ad": "İsotlar Grup",
+   "logo": "/assets/ref-isotlar.png",
+   "yukseklik": 24,
+   "gri": true
+  },
+  {
+   "ad": "Erdem Holding",
+   "logo": "/assets/ref-erdem.png",
+   "yukseklik": 22,
+   "gri": true
+  }
+ ],
+ "markalar": [
+  "Vaillant",
+  "Baymak",
+  "Airfel",
+  "DemirDöküm",
+  "Daikin",
+  "Viessmann",
+  "Arçelik",
+  "Protherm",
+  "Buderus",
+  "Bosch",
+  "ECA",
+  "Arissa"
+ ],
+ "belgeler": [
+  {
+   "belge": "İGDAŞ Yetkili Bayi belgesi",
+   "kurum": "İGDAŞ",
+   "durum": "Yetki No: 7005140",
+   "dosya": ""
+  }
+ ],
+ "blog": [
+  {
+   "id": "kombi-alirken-nelere-dikkat-edilmeli",
+   "kategori": "Isıtma",
+   "tarih": "2026-11-16",
+   "sure": 4,
+   "baslik": "Kombi Alırken Nelere Dikkat Edilmeli?",
+   "ozet": "Kombi alırken kapasite, verim sınıfı, sıcak su debisi ve servis ağı nasıl değerlendirilir? Doğru kombi seçimi için dikkat edilmesi gerekenler.",
+   "icerik": "\n<p>Kombi, bir evde on yıldan uzun süre kullanılan ve doğalgaz faturasını doğrudan belirleyen bir cihazdır. Bu yüzden kombi alırken yalnızca fiyata değil, evin ihtiyacına uygunluğuna bakmak gerekir. Aşağıda kombi seçiminde en çok fark yaratan başlıkları sıraladık.</p>\n<h2>1. Kombi kapasitesi evinize uygun mu?</h2>\n<p>Kombi kapasitesi kW cinsinden belirtilir. Kapasite; evin alanına, yalıtım durumuna, kat konumuna ve banyo sayısına göre seçilir. Gereğinden büyük kombi sık sık dur kalk yaparak verimsiz çalışır, küçük kombi ise soğuk günlerde evi ısıtmakta zorlanır. Ön fikir edinmek için <a href=\"/hesaplama\">kombi kapasitesi hesaplama aracımızı</a> kullanabilirsiniz.</p>\n<h2>2. Yoğuşmalı kombi ve verim sınıfı</h2>\n<p>Türkiye'de 2018'den itibaren yalnızca yoğuşmalı kombiler satılıyor. Yine de modeller arasında fark vardır: enerji etiketindeki mevsimsel verim sınıfına ve cihazın modülasyon aralığına bakın. Modülasyon aralığı geniş olan kombi, ihtiyaç azaldığında gücünü düşürerek çalışmaya devam eder ve daha az gaz tüketir.</p>\n<h2>3. Sıcak su debisi</h2>\n<p>Kullanım suyu konforu, kombinin dakikada verebildiği sıcak su miktarıyla (litre/dakika) ilgilidir. Tek banyolu evlerde standart modeller yeterlidir. Aynı anda iki banyoda sıcak su kullanılacaksa daha yüksek kapasiteli ya da boylerli bir çözüm düşünülmelidir.</p>\n<h2>4. Servis ağı ve garanti</h2>\n<p>Kombinin ilk çalıştırması yetkili servis tarafından yapılır ve garanti bu işlemle başlar. Bulunduğunuz ilçede markanın yetkili servisinin olup olmadığını, yedek parça bulunabilirliğini ve garanti süresini satın almadan önce öğrenin.</p>\n<h2>5. Montaj ve proje</h2>\n<p>Kombinin doğru çalışması montaja bağlıdır. Baca bağlantısı, yoğuşma suyu gideri ve tesisat bağlantıları kurallarına uygun yapılmalıdır. Kombi değişiminde proje ve uygunluk işlemleri gerekebilir; bu süreci <a href=\"/hizmetler/kombi\">kombi montajı ve değişimi</a> hizmetimiz kapsamında biz yürütüyoruz.</p>\n<h2>Sık sorulan sorular</h2>\n<h3>100 m² ev için kaç kW kombi gerekir?</h3>\n<p>Orta yalıtımlı, ara kat bir dairede 100 m² için ısıtma ihtiyacı yaklaşık 10 kW'tır; bu durumda 24 kW sınıfı bir kombi hem ısıtma hem sıcak su için yeterlidir. Kesin seçim keşifle yapılmalıdır.</p>\n<h3>Kombiye oda termostatı taktırmalı mıyım?</h3>\n<p>Evet. Oda termostatı, ev istenen sıcaklığa ulaştığında kombiyi durdurarak gereksiz çalışmayı önler ve tüketimi azaltır.</p>"
+  },
+  {
+   "id": "dogalgaz-aboneligi-ve-tesisat-sureci",
+   "kategori": "Doğalgaz",
+   "tarih": "2026-11-14",
+   "sure": 4,
+   "baslik": "Doğalgaz Aboneliği ve Tesisat Süreci Adım Adım",
+   "ozet": "İstanbul'da doğalgaz aboneliği nasıl yapılır, tesisat projesi ve İGDAŞ onayı nasıl ilerler? Keşiften gaz açmaya doğalgaz tesisat süreci.",
+   "icerik": "\n<p>Evine ya da iş yerine ilk kez doğalgaz bağlatacak olanların en çok sorduğu soru şudur: Nereden başlamalıyım? İstanbul'da doğalgaz dağıtımını İGDAŞ yapar; tesisatı ise İGDAŞ'ın yetkilendirdiği firmalar projelendirir ve kurar. Süreç aşağıdaki adımlarla ilerler.</p>\n<h2>1. Yetkili firma seçimi ve keşif</h2>\n<p>İlk adım, İGDAŞ yetkili bir firmayla görüşmektir. Firma adresinize gelerek keşif yapar; cihazların yerini, boru güzergâhını ve baca çıkışını belirler. GAZ-A Mühendislik, <strong>7005140 yetki numarasıyla İGDAŞ yetkili bayidir</strong> ve keşif hizmetini ücretsiz verir.</p>\n<h2>2. Teklif ve sözleşme</h2>\n<p>Keşiften sonra malzeme, işçilik ve proje bedelini içeren yazılı bir teklif hazırlanır. Anlaşma sağlandığında firma ile sözleşme imzalanır.</p>\n<h2>3. Tesisat projesi ve İGDAŞ onayı</h2>\n<p>Firmanın mühendisi doğalgaz tesisat projesini çizer ve İGDAŞ'a sunar. Projede boru çapları, cihaz kapasiteleri, havalandırma ve baca detayları yer alır. Tesisata, proje onaylandıktan sonra başlanır.</p>\n<h2>4. Tesisatın yapılması</h2>\n<p>Onaylı projeye göre binanın kolon hattı ve daire içi tesisat döşenir, cihazlar monte edilir. Kullanılan boru, vana ve bağlantı elemanlarının doğalgaza uygun ve belgeli olması gerekir.</p>\n<h2>5. Sızdırmazlık testi ve kontrol</h2>\n<p>Tesisat tamamlandığında basınç altında sızdırmazlık testi yapılır. Ardından İGDAŞ görevlisi tesisatı yerinde kontrol eder. Uygun bulunan tesisat için gaz açma aşamasına geçilir.</p>\n<h2>6. Abonelik sözleşmesi ve gaz açma</h2>\n<p>Abone, İGDAŞ ile abonelik sözleşmesini yapar ve sayaç takılır. Gaz açıldıktan sonra kombinin ilk çalıştırması yetkili servis tarafından gerçekleştirilir. Abonelik için gereken güncel evrak ve bedelleri İGDAŞ'tan ya da keşif sırasında bizden öğrenebilirsiniz.</p>\n<h2>Sık sorulan sorular</h2>\n<h3>Doğalgaz tesisatı kaç günde biter?</h3>\n<p>Süre, işin büyüklüğüne ve kurumun kontrol randevusuna göre değişir. Montaj süresini ve tahmini gaz açma tarihini teklifte yazılı olarak belirtiyoruz.</p>\n<h3>Tesisatı herhangi bir ustaya yaptırabilir miyim?</h3>\n<p>Hayır. Doğalgaz iç tesisatı yalnızca dağıtım şirketinin yetkilendirdiği firmalar tarafından, onaylı projeye göre yapılabilir. Ayrıntı için <a href=\"/hizmetler/dogalgaz\">doğalgaz projesi ve tesisatı</a> sayfamıza bakabilirsiniz.</p>"
+  },
+  {
+   "id": "yogusmali-kombi-nedir-nasil-tasarruf-saglar",
+   "kategori": "Isıtma",
+   "tarih": "2026-11-12",
+   "sure": 3,
+   "baslik": "Yoğuşmalı Kombi Nedir, Nasıl Tasarruf Sağlar?",
+   "ozet": "Yoğuşmalı kombi nasıl çalışır, neden daha az doğalgaz harcar? Yoğuşmalı kombiden en yüksek verimi almak için ayar ve kullanım önerileri.",
+   "icerik": "\n<p>Yoğuşmalı kombi, doğalgazın yanması sırasında bacadan atılan ısının bir bölümünü geri kazanan kombidir. Aynı ısıyı daha az gaz yakarak ürettiği için faturayı düşürür; ancak bu tasarruf, cihazın doğru ayarlarla kullanılmasına bağlıdır.</p>\n<h2>Yoğuşmalı kombi nasıl çalışır?</h2>\n<p>Doğalgaz yandığında ortaya su buharı çıkar. Eski tip kombilerde bu sıcak buhar bacadan dışarı atılır. Yoğuşmalı kombide ise baca gazı, tesisattan dönen görece soğuk suyla karşılaştırılır; buhar yoğuşarak suya dönüşür ve taşıdığı ısıyı tesisat suyuna bırakır. Geri kazanılan bu ısı, kombinin verimini yükseltir.</p>\n<h2>Tasarrufun şartı: düşük dönüş suyu sıcaklığı</h2>\n<p>Yoğuşmanın gerçekleşmesi için tesisattan kombiye dönen suyun yaklaşık 55 °C'nin altında olması gerekir. Kombi suyu çok yüksek sıcaklığa ayarlanırsa yoğuşma azalır ve cihaz sıradan bir kombi gibi çalışır.</p>\n<h2>Yoğuşmalı kombiden verim almak için öneriler</h2>\n<ul>\n<li>Kalorifer suyu sıcaklığını, evi ısıtmaya yeten en düşük değerde tutun.</li>\n<li>Kombiyi sık sık kapatıp açmak yerine oda termostatıyla sabit bir sıcaklıkta çalıştırın.</li>\n<li>Radyatörlerin önünü mobilya ve kalın perdeyle kapatmayın.</li>\n<li>Radyatör boyları yeterli değilse düşük sıcaklıkta ev ısınmaz; bu durumda radyatör ilavesi değerlendirilmelidir. <a href=\"/hesaplama\">Radyatör uzunluğu hesaplama aracımız</a> fikir verir.</li>\n<li>Yıllık bakımı aksatmayın.</li>\n</ul>\n<h2>Sık sorulan sorular</h2>\n<h3>Yoğuşmalı kombiden su damlaması normal mi?</h3>\n<p>Evet. Yoğuşma sırasında oluşan su, cihazın altındaki bir hortumla gidere verilir. Bu, kombinin verimli çalıştığının göstergesidir.</p>\n<h3>Eski kombimi yoğuşmalı kombiyle değiştirirken proje gerekir mi?</h3>\n<p>Cihazın tipine, kapasitesine ve yerinin değişip değişmediğine göre proje ve uygunluk işlemi gerekebilir. <a href=\"/hizmetler/kombi\">Kombi değişimi</a> hizmetimizde bu işlemleri biz yürütüyoruz.</p>"
+  },
+  {
+   "id": "kis-oncesi-kombi-bakimi",
+   "kategori": "Bakım",
+   "tarih": "2026-11-10",
+   "sure": 3,
+   "baslik": "Kış Öncesi Kombi Bakımı Neden Önemli?",
+   "ozet": "Kombi bakımı ne zaman yapılmalı, bakımda neler kontrol edilir? Kış öncesi kombi bakımının güvenlik, verim ve cihaz ömrüne etkisi.",
+   "icerik": "\n<p>Kombi, yaz boyunca yalnızca sıcak su için çalışır; ısıtma sezonu açıldığında ise günde saatlerce tam yükte çalışmaya başlar. Kış öncesi yapılan bakım, cihazın bu yoğun döneme sorunsuz girmesini sağlar.</p>\n<h2>Kombi bakımı neden yapılmalı?</h2>\n<ul>\n<li><strong>Güvenlik:</strong> Yanma ve baca sistemi kontrol edilir, emniyet elemanlarının çalıştığı doğrulanır.</li>\n<li><strong>Verim:</strong> Kirlenen yanma odası ve filtreler ısı geçişini düşürür; aynı ısı için daha fazla gaz harcanır.</li>\n<li><strong>Cihaz ömrü:</strong> Küçük sorunlar büyük arızaya dönüşmeden fark edilir.</li>\n<li><strong>Konfor:</strong> Kışın ortasında kombinin arıza yapma olasılığı azalır.</li>\n</ul>\n<h2>Bakımda neler kontrol edilir?</h2>\n<p>Bakım sırasında yanma odası ve eşanjör temizlenir, filtreler kontrol edilir, genleşme tankının basıncı ölçülür, emniyet ventili ve sensörler test edilir, gaz bağlantılarında kaçak kontrolü yapılır.</p>\n<h2>Kombi bakımı ne zaman yapılmalı?</h2>\n<p>Kombi bakımının yılda bir kez, ısıtma sezonu başlamadan yapılması önerilir. Eylül ve ekim ayları en uygun dönemdir; kasımdan sonra servis yoğunluğu arttığı için randevu bulmak zorlaşır.</p>\n<h2>Kullanıcının kendi yapabilecekleri</h2>\n<ul>\n<li>Kombi göstergesindeki su basıncını kontrol edin. Tesisat soğukken basınç genellikle 1 ile 1,5 bar arasında olmalıdır.</li>\n<li>Üst kısmı soğuk kalan radyatörlerin havasını alın.</li>\n<li>Basınç sık sık düşüyorsa su eklemeye devam etmeyin; tesisatta kaçak olabilir, servis çağırın.</li>\n</ul>\n<h2>Sık sorulan sorular</h2>\n<h3>Gaz kokusu alırsam ne yapmalıyım?</h3>\n<p>Gaz vanasını kapatın, kapı ve pencereleri açın, elektrik düğmelerine dokunmayın ve dışarıdan Doğalgaz Acil 187 hattını arayın.</p>\n<h3>Bakımı kim yapmalı?</h3>\n<p>Bakım, cihaz konusunda eğitimli teknik ekipler tarafından yapılmalıdır. <a href=\"/hizmetler/bakim\">Periyodik bakım ve onarım</a> hizmetimiz için bizimle iletişime geçebilirsiniz.</p>"
+  },
+  {
+   "id": "klima-kapasitesi-nasil-secilir",
+   "kategori": "İklimlendirme",
+   "tarih": "2026-11-08",
+   "sure": 3,
+   "baslik": "Klima Kapasitesi Nasıl Seçilir? BTU Hesabı",
+   "ozet": "Kaç metrekareye kaç BTU klima gerekir? İstanbul için klima BTU hesabı, kapasite seçimini etkileyen etkenler ve doğru montajın önemi.",
+   "icerik": "\n<p>Klima alırken en sık yapılan hata, kapasiteyi yalnızca oda büyüklüğüne bakarak ya da tahminle seçmektir. Küçük seçilen klima sürekli tam güçte çalışır ve mekânı serinletemez; büyük seçilen klima ise sık sık durup çalışarak hem fazla elektrik harcar hem de nem kontrolünü zorlaştırır.</p>\n<h2>BTU nedir?</h2>\n<p>BTU/h, klimanın bir saatte ortamdan çekebildiği ısı miktarını gösteren kapasite birimidir. Ev tipi klimalar genellikle 9.000, 12.000, 18.000 ve 24.000 BTU/h kapasitelerinde üretilir.</p>\n<h2>İstanbul için pratik BTU hesabı</h2>\n<p>Marmara Bölgesi için yaygın kullanılan yaklaşık hesap şöyledir: oda alanı (m²) 385 ile çarpılır; odada sürekli bulunan ilk kişiden sonraki her kişi için 600 BTU/h eklenir.</p>\n<div class=\"tw\"><table>\n<thead><tr><th>Oda alanı</th><th>Önerilen kapasite</th></tr></thead>\n<tbody>\n<tr><td>23 m²'ye kadar</td><td>9.000 BTU/h</td></tr>\n<tr><td>24 – 31 m²</td><td>12.000 BTU/h</td></tr>\n<tr><td>32 – 47 m²</td><td>18.000 BTU/h</td></tr>\n<tr><td>48 – 62 m²</td><td>24.000 BTU/h</td></tr>\n</tbody></table></div>\n<p>Kendi odanız için <a href=\"/hesaplama\">klima kapasitesi hesaplama aracımızı</a> kullanabilirsiniz.</p>\n<h2>Kapasiteyi artıran etkenler</h2>\n<ul>\n<li>Güney ya da batı cephe ve geniş cam yüzeyler</li>\n<li>Çatı katı ya da yalıtımsız bina</li>\n<li>Mutfakla birleşik salonlar ve ısı yayan cihazlar</li>\n<li>Standarttan yüksek tavan</li>\n</ul>\n<h2>Montaj da kapasite kadar önemli</h2>\n<p>Doğru kapasitedeki klima, hatalı montajla verimsiz çalışır. Bakır boru uzunluğu, drenaj eğimi ve dış ünitenin hava alabileceği bir yere konması performansı doğrudan etkiler. <a href=\"/hizmetler/klima\">Klima ve iklimlendirme</a> hizmetimizde keşif, cihaz seçimi ve montajı birlikte yapıyoruz.</p>\n<h2>Sık sorulan sorular</h2>\n<h3>20 m² oda için kaç BTU klima gerekir?</h3>\n<p>Standart koşullarda 20 m² bir oda için 9.000 BTU/h yeterlidir. Oda yoğun güneş alıyorsa ya da çatı katındaysa 12.000 BTU/h değerlendirilmelidir.</p>\n<h3>Inverter klima almalı mıyım?</h3>\n<p>Inverter klimalar, ortam istenen sıcaklığa geldiğinde durmak yerine gücünü düşürerek çalışır. Uzun süreli kullanımda daha az elektrik tüketir ve daha sessizdir.</p>"
+  }
+ ]
+}

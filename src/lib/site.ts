@@ -67,7 +67,7 @@ export const appPopup = {
 export const contact = {
   phone: "0533 194 49 52",
   email: "destek@kombiklimago.com",
-  address: "Eyüp Sultan Mah. Merkez Cad. No: 18 A Sancaktepe / İstanbul",
+  address: "Esenşehir Mah. Çetinkaya Sok. No: 1 Ümraniye / İstanbul",
 };
 
 export const footerLinks = {
